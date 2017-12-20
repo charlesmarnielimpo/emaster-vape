@@ -26,11 +26,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
 
-<<<<<<< HEAD
 Route::get('/test', 'HomeController@test');
-
-=======
->>>>>>> 10c1ac6f5145cdaf5a2afc3b039b436ea7a1f1f7
 
 /******************
  * ADMINISTRATOR  *
