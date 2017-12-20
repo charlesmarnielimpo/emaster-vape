@@ -62,8 +62,8 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/01.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
+              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">Cloud Beast Prince</a></h3>
               <h4 class="product-price">
                 <del>$99.99</del>$49.99
               </h4>
@@ -75,8 +75,8 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/02.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Cole Haan Crossbody</a></h3>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/stick-v8.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">Stick-V8</a></h3>
               <h4 class="product-price">$200.00</h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -88,8 +88,8 @@
           <div class="grid-item">
             <div class="product-card">
                 <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/03.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Oakley Kickback</a></h3>
+                </div><a class="product-thumb" href="#"><img src="{{ url('/img/products/G-PRIV2.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">G-PRIV2</a></h3>
               <h4 class="product-price">$155.00</h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -99,8 +99,8 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/04.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">Battery</a></h3>
               <h4 class="product-price">$47.00</h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -112,8 +112,8 @@
           <div class="grid-item">
             <div class="product-card">
                 <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i><i class="icon-star"></i>
-                </div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/05.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Jordan City Man's Hoodie</a></h3>
+                </div><a class="product-thumb" href="#"><img src="{{ url('/img/products/battery-cover.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">Battery Cover</a></h3>
               <h4 class="product-price">$65.00</h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -124,8 +124,8 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-danger">40% Off</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/06.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Palace Shell Track Jacket</a></h3>
+              <div class="product-badge text-danger">40% Off</div><a class="product-thumb" href="#"><img src="{{ url('/img/products/TFV8-big-family.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">TFV8 Big Family</a></h3>
               <h4 class="product-price">
                 <del>$60.00</del>$36.00
               </h4>
@@ -137,8 +137,8 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/07.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Stretch Woven Jogger</a></h3>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a>
+              <h3 class="product-title"><a href="#">Vape Pen Tank Big Family</a></h3>
               <h4 class="product-price">$69.99</h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
@@ -149,11 +149,11 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-muted">Out of stock</div><a class="product-thumb" href="shop-single.html"><img src="img/shop/products/08.jpg" alt="Product"></a>
-              <h3 class="product-title"><a href="shop-single.html">Off the Shoulder Top</a></h3>
+              <div class="product-badge text-muted">Out of stock</div><a class="product-thumb" href="#"><img src="/img/products/TFV8-big-baby-light-edition.png" alt="Product"></a>
+              <h3 class="product-title"><a href="#">TFV8 Big Baby Light Edition</a></h3>
               <h4 class="product-price">$128.00</h4>
               <div class="product-buttons">
-                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button><a class="btn btn-outline-secondary btn-sm" href="shop-single.html">View Details</a>
+                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button><a class="btn btn-outline-secondary btn-sm" href="#">View Details</a>
               </div>
             </div>
           </div>
@@ -177,23 +177,23 @@
               <h3 class="widget-title">Top Sellers</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/01.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Oakley Kickback</a></h4><span class="entry-meta">$155.00</span>
+                  <h4 class="entry-title"><a href="#">Cloud Beast Prince</a></h4><span class="entry-meta">$155.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/03.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/stick-v8.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Vented Straw Fedora</a></h4><span class="entry-meta">$49.50</span>
+                  <h4 class="entry-title"><a href="#">Stick V8</a></h4><span class="entry-meta">$49.50</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/04.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/G-PRIV2.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Big Wordmark Tote</a></h4><span class="entry-meta">$29.99</span>
+                  <h4 class="entry-title"><a href="#">G-PRIV2</a></h4><span class="entry-meta">$29.99</span>
                 </div>
               </div><a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
             </div>
@@ -203,23 +203,23 @@
               <h3 class="widget-title">New Arrivals</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/05.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Union Park</a></h4><span class="entry-meta">$49.99</span>
+                  <h4 class="entry-title"><a href="#">Battery</a></h4><span class="entry-meta">$49.99</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/06.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery-cover.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Cole Haan Crossbody</a></h4><span class="entry-meta">$200.00</span>
+                  <h4 class="entry-title"><a href="#">Battery Cover</a></h4><span class="entry-meta">$200.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/07.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Skagen Holst Watch</a></h4><span class="entry-meta">$145.00</span>
+                  <h4 class="entry-title"><a href="#">Vape Pen Tank Big Family</a></h4><span class="entry-meta">$145.00</span>
                 </div>
               </div><a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
             </div>
@@ -229,23 +229,23 @@
               <h3 class="widget-title">Best Rated</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/08.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/TFV8-big-baby-light-edition.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Jordan's City Hoodie</a></h4><span class="entry-meta">$65.00</span>
+                  <h4 class="entry-title"><a href="#">TFV8 Big Baby Light Edition</a></h4><span class="entry-meta">$65.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/09.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Palace Shell Track Jacket</a></h4><span class="entry-meta">$36.99</span>
+                  <h4 class="entry-title"><a href="#">Cloud Beast Prince</a></h4><span class="entry-meta">$36.99</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="shop-single.html"><img src="img/shop/widget/10.jpg" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
-                  <h4 class="entry-title"><a href="shop-single.html">Off the Shoulder Top</a></h4><span class="entry-meta">$128.00</span>
+                  <h4 class="entry-title"><a href="#">Battery</a></h4><span class="entry-meta">$128.00</span>
                 </div>
               </div><a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
             </div>
