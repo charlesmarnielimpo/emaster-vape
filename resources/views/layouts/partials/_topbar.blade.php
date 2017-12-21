@@ -31,7 +31,8 @@
     <div class="inner">
       <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
       <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-      <!-- Site Logo--><a class="site-logo" href="{{ url('/') }}"><img src="{{ asset('/img/logo/logo.png') }}" alt="Unishop"></a>
+      <!-- Site Logo-->
+      <a class="site-logo" href="{{ url('/') }}"><img src="{{ asset('/img/logo/logo.png') }}" alt="E-Master Vape" style="width: 50px;"></a>
     </div>
   </div>
   <!-- Main Navigation-->

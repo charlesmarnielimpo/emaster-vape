@@ -62,7 +62,7 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a>
+              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="#"><img src="{{ asset('/img/products/cloud-beast-prince.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">Cloud Beast Prince</a></h3>
               <h4 class="product-price">
                 <del>$99.99</del>$49.99
@@ -75,7 +75,7 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/stick-v8.png') }}" alt="Product"></a>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ asset('/img/products/stick-v8.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">Stick-V8</a></h3>
               <h4 class="product-price">$200.00</h4>
               <div class="product-buttons">
@@ -88,7 +88,7 @@
           <div class="grid-item">
             <div class="product-card">
                 <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                </div><a class="product-thumb" href="#"><img src="{{ url('/img/products/G-PRIV2.png') }}" alt="Product"></a>
+                </div><a class="product-thumb" href="#"><img src="{{ asset('/img/products/G-PRIV2.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">G-PRIV2</a></h3>
               <h4 class="product-price">$155.00</h4>
               <div class="product-buttons">
@@ -99,7 +99,7 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ asset('/img/products/battery.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">Battery</a></h3>
               <h4 class="product-price">$47.00</h4>
               <div class="product-buttons">
@@ -112,7 +112,7 @@
           <div class="grid-item">
             <div class="product-card">
                 <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i><i class="icon-star"></i>
-                </div><a class="product-thumb" href="#"><img src="{{ url('/img/products/battery-cover.png') }}" alt="Product"></a>
+                </div><a class="product-thumb" href="#"><img src="{{ asset('/img/products/battery-cover.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">Battery Cover</a></h3>
               <h4 class="product-price">$65.00</h4>
               <div class="product-buttons">
@@ -124,7 +124,7 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-danger">40% Off</div><a class="product-thumb" href="#"><img src="{{ url('/img/products/TFV8-big-family.png') }}" alt="Product"></a>
+              <div class="product-badge text-danger">40% Off</div><a class="product-thumb" href="#"><img src="{{ asset('/img/products/TFV8-big-family.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">TFV8 Big Family</a></h3>
               <h4 class="product-price">
                 <del>$60.00</del>$36.00
@@ -137,7 +137,7 @@
           </div>
           <!-- Product-->
           <div class="grid-item">
-            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ url('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a>
+            <div class="product-card"><a class="product-thumb" href="#"><img src="{{ asset('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">Vape Pen Tank Big Family</a></h3>
               <h4 class="product-price">$69.99</h4>
               <div class="product-buttons">
@@ -149,7 +149,7 @@
           <!-- Product-->
           <div class="grid-item">
             <div class="product-card">
-              <div class="product-badge text-muted">Out of stock</div><a class="product-thumb" href="#"><img src="/img/products/TFV8-big-baby-light-edition.png" alt="Product"></a>
+              <div class="product-badge text-muted">Out of stock</div><a class="product-thumb" href="#"><img src="{{ asset('/img/products/TFV8-big-baby-light-edition.png') }}" alt="Product"></a>
               <h3 class="product-title"><a href="#">TFV8 Big Baby Light Edition</a></h3>
               <h4 class="product-price">$128.00</h4>
               <div class="product-buttons">
@@ -177,21 +177,21 @@
               <h3 class="widget-title">Top Sellers</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Cloud Beast Prince</a></h4><span class="entry-meta">$155.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/stick-v8.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/stick-v8.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Stick V8</a></h4><span class="entry-meta">$49.50</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/G-PRIV2.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/G-PRIV2.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">G-PRIV2</a></h4><span class="entry-meta">$29.99</span>
                 </div>
@@ -203,21 +203,21 @@
               <h3 class="widget-title">New Arrivals</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/battery.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Battery</a></h4><span class="entry-meta">$49.99</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery-cover.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/battery-cover.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Battery Cover</a></h4><span class="entry-meta">$200.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/vape-pen-tank-big-family.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Vape Pen Tank Big Family</a></h4><span class="entry-meta">$145.00</span>
                 </div>
@@ -229,21 +229,21 @@
               <h3 class="widget-title">Best Rated</h3>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/TFV8-big-baby-light-edition.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/TFV8-big-baby-light-edition.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">TFV8 Big Baby Light Edition</a></h4><span class="entry-meta">$65.00</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/cloud-beast-prince.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Cloud Beast Prince</a></h4><span class="entry-meta">$36.99</span>
                 </div>
               </div>
               <!-- Entry-->
               <div class="entry">
-                <div class="entry-thumb"><a href="#"><img src="{{ url('/img/products/battery.png') }}" alt="Product"></a></div>
+                <div class="entry-thumb"><a href="#"><img src="{{ asset('/img/products/battery.png') }}" alt="Product"></a></div>
                 <div class="entry-content">
                   <h4 class="entry-title"><a href="#">Battery</a></h4><span class="entry-meta">$128.00</span>
                 </div>
