@@ -66,8 +66,8 @@
               <li class="sub-menu-separator"></li>
               <li><a href="{{ url('/logout') }}"> <i class="icon-unlock"></i>Logout</a></li>
             @else
-              <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i></i>&nbsp; Login</a></li>
-              <li><a href="{{ route('register') }}"><i class="fa fa-pencil-square-o"></i>&nbsp; Register</a></li>
+              <li><a href="{{ route('login') }}"><i class="fa fa-sign-in"></i></i>&nbsp;Login</a></li>
+              <li><a href="{{ route('register') }}"><i class="fa fa-pencil-square-o"></i>&nbsp;Register</a></li>
             @endif
           </ul>
         </div>

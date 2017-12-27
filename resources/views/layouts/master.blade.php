@@ -7,9 +7,9 @@
 		@include('layouts.partials._sidebar')
 		@include('layouts.partials._topbar')
 	@endif
-	
+
 	@yield('content')
-	
+		
 	@if(!Request::is('admin/*'))
 		@include('layouts.partials._footer')
 	@endif
