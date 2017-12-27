@@ -4,10 +4,11 @@
 		<img src="{{ url('/img/logo/logo.png') }}" alt="E-master Vape" width="65px">
 	</div>
 	<div id="sidenav">
+		<h1>Test</h1>
 		<p class="menu-label">General</p>
 		<ul>
-			<li class="active">
-				<a href="{{ route('dashboard') }}" class="active"><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
+			<li>
+				<a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i>&nbsp; Dashboard</a>
 			</li>
 			<li>
 				<a href="{{ route('categories') }}"><i class="fa fa-list"></i>&nbsp; Categories</a>

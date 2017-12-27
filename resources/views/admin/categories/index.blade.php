@@ -21,5 +21,5 @@
 @endsection
 
 @section('scripts')
-
+	<script src="{{ asset('/js/pages/categories/categories.js') }}"></script>
 @endsection
