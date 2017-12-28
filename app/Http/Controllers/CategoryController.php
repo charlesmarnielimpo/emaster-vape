@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index'); 
+        $categories = Category::get();
+        return view('admin.categories.index')->with('categories', $categories); 
     }
 
     /**
@@ -80,5 +82,35 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ajaxStore(Request $request)
+    {
+        $this->validate($request, array(
+                'category_name' => 'required|string|max:20'
+            ));
+
+        $category = Category::where('category_name', $request->category_name)->first();
+
+        if ($category) {
+            $notification = array(
+                'message' => $request->category_name. ' already exists.', 
+                'alert-type' => 'error'
+            );
+
+            return array('status' => 'ERROR', 'notification' => $notification);
+        } else {
+            $category = New Category;
+
+            $category->category_name = $request->category_name;
+            $category->save();
+
+            $notification = array(
+                'message' => $request->category_name. ' successfully saved!', 
+                'alert-type' => 'success'
+            );
+
+            return array('status' => 'OK', 'result' => $category, 'notification' => $notification);
+        }
     }
 }

@@ -6,7 +6,8 @@
     
     <!-- Mobile Specific Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/img/icons/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('/img/icons/favicon-32x32.png') }}">
@@ -24,4 +25,6 @@
     
     <!-- Modernizr-->
     <script src="{{ asset('/js/modernizr.min.js') }}"></script>
+
+    @yield('stylesheets')
   </head>

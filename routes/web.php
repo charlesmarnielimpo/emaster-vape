@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'MainController@index');
 
 /**********************
@@ -35,3 +31,4 @@ Route::get('/admin/dashboard', 'DashboardController@index')->middleware('admin')
 
 // Categories
 Route::get('/admin/categories', 'CategoryController@index')->middleware('admin')->name('categories');
+Route::post('/admin/categories', 'CategoryController@ajaxStore')->middleware('admin');

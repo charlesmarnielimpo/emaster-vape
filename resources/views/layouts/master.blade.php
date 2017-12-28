@@ -1,7 +1,5 @@
 @include('layouts.partials._header')
 
-@yield('stylesheets')
-
 <body>
 	@if(!Request::is('admin/*'))
 		@include('layouts.partials._sidebar')

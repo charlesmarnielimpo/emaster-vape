@@ -1,10 +1,9 @@
 <!-- Admin Sidenav -->
 <aside id="admin-sidenav">
 	<div id="logo" style="text-align: center;">
-		<img src="{{ url('/img/logo/logo.png') }}" alt="E-master Vape" width="65px">
+		<img src="{{ asset('/img/logo/logo.png') }}" alt="E-master Vape" width="65px">
 	</div>
 	<div id="sidenav">
-		<h1>Test</h1>
 		<p class="menu-label">General</p>
 		<ul>
 			<li>
