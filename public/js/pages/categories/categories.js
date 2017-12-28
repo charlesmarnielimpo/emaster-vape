@@ -53,7 +53,7 @@ $(document).ready(function() {
 
      category.store(category_obj, function (data) {
 			if (data.status == 'OK') {
-				$('#btn-add-category').removeAttr('disabled').find('i').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-floppy-o');
+				$('#btn-add-category').removeAttr('disabled').find('i').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-check-square-o');
 				toastr.success(data.notification.message, 'Success!');
         toastr.options = {
           "progressBar": true,
@@ -65,7 +65,7 @@ $(document).ready(function() {
 				window.location.reload(true);
 			}
 			else {
-				$('#btn-add-category').removeAttr('disabled').find('i').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-floppy-o');
+				$('#btn-add-category').removeAttr('disabled').find('i').removeClass('fa-refresh').removeClass('fa-spin').addClass('fa-check-square-o');
 				$('#modal-add-category').modal('hide');
 
 				toastr.error(data.notification.message, 'Error!');

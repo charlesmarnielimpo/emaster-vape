@@ -85,7 +85,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
-            <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-check-square-o" id="btn-add-category"></i>&nbsp;Save</button>
+            <button class="btn btn-primary btn-sm" type="submit" id="btn-add-category"><i class="fa fa-check-square-o"></i>&nbsp;Save</button>
           </div>
         </div>
       </form>
