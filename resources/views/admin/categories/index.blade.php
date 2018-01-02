@@ -38,8 +38,9 @@
           <thead>
             <tr>
               <th width="5%" class="text-center">#</th>
-              <th width="40%">Name</th>
-              <th width="30%">Created At</th>
+              <th width="30%">Name</th>
+              <th width="20%">Created At</th>
+              <th width="20%">Updated</th>
               <th width="10%">Action</th>
             </tr>
           </thead>
@@ -49,9 +50,10 @@
                 <th class="text-center">{{ $category->id }}</th>
                 <td>{{ $category->category_name }}</td>
                 <td>{{ date('M j, Y h:i A', strtotime($category->created_at)) }}</td>
+                <td>{{ $category->updated_at->diffForHumans() }}</td>
                 <td>
-                	<button class="btn btn-info btn-sm btn-rounded" type="button" data-toggle="tooltip" data-placement="top" title="Edit" data-id="{{ $category->id }}"><i class="fa fa-pencil"></i></button>
-                	<button class="btn btn-info btn-sm btn-rounded" type="button" data-toggle="tooltip" data-placement="top" title="Delete"data-id="{{ $category->id }}"><i class="fa fa-trash"></i></button>
+                	<button class="btn btn-info btn-sm btn-rounded category-edit" type="button" data-toggle="modal" data-target="#modal-edit-category" data-id="{{ $category->id }}"><i class="fa fa-pencil"></i></button>
+                	<button class="btn btn-info btn-sm btn-rounded category-delete" type="button" data-toggle="modal" data-target="#modal-delete-category" data-id="{{ $category->id }}"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
             @empty
@@ -68,6 +70,7 @@
 	<!-- /wrapper -->
 
 	<!-- Modals -->
+  <!-- Add Category -->
   <div class="modal fade" id="modal-add-category" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <form action="{{ url('admin/categories') }}" method="POST" id="frm-add-category">
@@ -80,12 +83,63 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="small-rounded-input">Name:</label>
-              <input class="form-control form-control-rounded form-control-sm" name="category_name" type="text" id="txt-add-category-name" placeholder="Category name">
+              <input class="form-control form-control-rounded form-control-sm" name="category_name" type="text" id="txt-add-category-name" placeholder="Category name" autocomplete="off">
             </div>
           </div>
           <div class="modal-footer">
             <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
             <button class="btn btn-primary btn-sm" type="submit" id="btn-add-category"><i class="fa fa-check-square-o"></i>&nbsp;Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Category -->
+  <div class="modal fade" id="modal-edit-category" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <form id="frm-edit-category" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('PUT') }}
+        <input type="hidden" id="hdn-edit-category-id">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Edit Category</h4>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="small-rounded-input">Name:</label>
+              <input class="form-control form-control-rounded form-control-sm" name="edit_category_name" type="text" id="txt-edit-category-name" autocomplete="off">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Close</button>
+            <button class="btn btn-primary btn-sm" type="submit" id="btn-edit-category"><i class="fa fa-check-square-o"></i>&nbsp;Save Changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Category -->
+  <div class="modal fade" id="modal-delete-category" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <form id="frm-delete-category" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+        <input type="hidden" id="hdn-delete-category-id">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Category</h4>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <p id="lbl-delete-category-confirmation">Are you sure you want to delete this?</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;No</button>
+            <button class="btn btn-primary btn-sm" type="submit" id="btn-delete-category"><i class="fa fa-check-square-o"></i>&nbsp;Yes</button>
           </div>
         </div>
       </form>

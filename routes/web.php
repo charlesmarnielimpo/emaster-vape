@@ -32,3 +32,6 @@ Route::get('/admin/dashboard', 'DashboardController@index')->middleware('admin')
 // Categories
 Route::get('/admin/categories', 'CategoryController@index')->middleware('admin')->name('categories');
 Route::post('/admin/categories', 'CategoryController@ajaxStore')->middleware('admin');
+Route::post('/admin/categories/{category}/ajaxShow', 'CategoryController@ajaxShow')->middleware('admin');
+Route::put('/admin/categories/{category}/ajaxUpdate', 'CategoryController@ajaxUpdate')->middleware('admin');
+Route::delete('/admin/categories/{category}/ajaxDestroy', 'CategoryController@ajaxDestroy')->middleware('admin');

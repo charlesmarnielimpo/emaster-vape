@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::all();
         return view('admin.categories.index')->with('categories', $categories); 
     }
 
@@ -101,7 +101,7 @@ class CategoryController extends Controller
             return array('status' => 'ERROR', 'notification' => $notification);
         } else {
             $category = New Category;
-
+            
             $category->category_name = $request->category_name;
             $category->save();
 
@@ -111,6 +111,42 @@ class CategoryController extends Controller
             );
 
             return array('status' => 'OK', 'result' => $category, 'notification' => $notification);
+        }
+    }
+
+    public function ajaxShow(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+
+        return array('status' => 'OK', 'result' => $category);
+    }
+
+    public function ajaxUpdate(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+
+        $notification = array(
+            'message' => 'Category was successfully updated!', 
+            'alert-type' => 'success'
+        );
+
+        return array('status' => 'OK', 'result' => $category, 'notification' => $notification);
+    }
+
+    public function ajaxDestroy($id)
+    {
+        $category = Category::findOrFail($id);
+
+        if ($category) {
+            $category->delete();
+        
+            $notification = array(
+                'message' => $category->category_name. ' category successfully deleted!', 
+                'alert-type' => 'success'
+            );
+
+            return array('status' => 'OK', 'notification' => $notification);
         }
     }
 }
