@@ -1686,7 +1686,7 @@ select.form-control.form-control-sm:not([size]):not([multiple]) {
 .has-danger.input-group .input-group-addon,
 .has-danger .form-control:focus ~ .input-group-addon {
     color: #ff5252;
-    margin-top: -13px;
+    /*margin-top: -13px;*/
 }
 .has-danger .form-control,
 .has-danger .form-control:focus {
