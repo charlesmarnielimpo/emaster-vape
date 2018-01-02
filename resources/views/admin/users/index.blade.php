@@ -26,8 +26,8 @@
 					</ul>
 				</div>
         <div class="col-xs-12 col-sm-6 col-md-6">
-          <h4 class="text-right">{{ $users->total() }} total users</h4>
-          <p class="text-right">({{ $users->count() }}){{ $users->count() == 1 ? ' user' : ' users'}} in this page</p>
+          <h4 class="text-right">{{ $users->total() }}{{ $users->total() <= 1 ? ' total user' : ' total users'}}</h4>
+          <p class="text-right">({{ $users->count() }}){{ $users->count() <= 1 ? ' user' : ' users'}} in this page</p>
         </div>
 			</div>
 		</div>
