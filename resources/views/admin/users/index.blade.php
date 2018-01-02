@@ -38,20 +38,25 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           @foreach($users as $user)
-            <div class="card bg-secondary md-3">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-lg-9 col-md-7">
-                    <h4 class="card-title">{{ $user->first_name}} {{ $user->last_name }}</h4>
+            <div class="card bg-secondary">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <img src="../img/components/img13.jpg" alt="" class="d-flex rounded-circle align-self-end mr-3" width="64">
+                  <div class="media-body">
+                    <div class="row">
+                      <div class="col-lg-9 col-md-7">
+                        <h6 class="mb-1 mt-2">{{ $user->first_name }} {{ $user->last_name }}</h6>
+                      </div>
+                      <div class="col-lg-3 col-md-5">
+                        <span class="d-block text-sm"><i>Joined {{ $user->created_at->diffForHumans() }}</i></span>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <span class="d-block text-sm text-muted">{{ $user->email }}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-lg-3 col-md-5">
-                    <p class="card-text"><i>Joined {{ $user->created_at->diffForHumans() }}</i></p>
-                  </div>
-                  <div class="col-lg-12 col-md-12">
-                    <p class="card-text">{{ $user->email }}</p>
-                  </div>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           @endforeach
           {{ $users->links() }}
