@@ -6,18 +6,25 @@
       <!-- Contact Info-->
       <section class="widget widget-light-skin">
         <h3 class="widget-title">Get In Touch With Us</h3>
-        <p class="text-white">Phone: 00 33 169 7720</p>
+        <p class="text-white">Mobile #: +639305739237</p>
         <ul class="list-unstyled text-sm text-white">
-          <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
-          <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
+          <li><span class="opacity-50">Monday-Saturday:</span> 8:00 am - 5:00 pm</li>
         </ul>
-        <p><a class="navi-link-light" href="#">support@unishop.com</a></p><a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>
+        <p><a class="navi-link-light" href="#">support@emastervape.com</a></p>
+        <a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a>
+        <a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a>
+        <a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>
       </section>
     </div>
     <div class="col-lg-3 col-md-6">
-      <!-- Mobile App Buttons-->
-      <section class="widget widget-light-skin">
-        <h3 class="widget-title">Our Mobile App</h3><a class="market-button apple-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span></a><a class="market-button google-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span></a><a class="market-button windows-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Windows Store</span></a>
+      <section class="widget widget-links widget-light-skin">
+        <h3 class="widget-title">Categories</h3>
+        <ul>
+          <li><a href="#">Vaporizers</a></li>
+          <li><a href="#">Liquids</a></li>
+          <li><a href="#">Tanks</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
       </section>
     </div>
     <div class="col-lg-3 col-md-6">
@@ -58,7 +65,7 @@
     <div class="col-md-5 padding-bottom-1x">
       <div class="margin-top-1x hidden-md-up"></div>
       <!--Subscription-->
-      <form class="subscribe-form" action="http://rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=1194bb7544" method="post" target="_blank" novalidate>
+      <form class="subscribe-form" method="post" target="_blank" novalidate>
         <div class="clearfix">
           <div class="input-group input-light">
             <input class="form-control" type="email" name="EMAIL" placeholder="Your e-mail"><span class="input-group-addon"><i class="icon-mail"></i></span>

@@ -29,11 +29,14 @@ Route::get('/home', 'HomeController@index');
 // Dashboard
 Route::get('/admin/dashboard', 'DashboardController@index')->middleware('admin')->name('dashboard');
 
-// Categories
 Route::group(['middleware' => 'admin'], function() {
+	// Categories
 	Route::get('/admin/categories', 'CategoryController@index')->name('categories');
 	Route::post('/admin/categories', 'CategoryController@ajaxStore');
 	Route::post('/admin/categories/{category}/ajaxShow', 'CategoryController@ajaxShow');
 	Route::put('/admin/categories/{category}/ajaxUpdate', 'CategoryController@ajaxUpdate');
 	Route::delete('/admin/categories/{category}/ajaxDestroy', 'CategoryController@ajaxDestroy');
+	
+	// Users
+	Route::get('/admin/users', 'UserController@index')->name('users');
 });
