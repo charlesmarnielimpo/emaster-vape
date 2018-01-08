@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Categories')
+@section('title', 'Users')
 
 @section('stylesheets')
 	<link rel="stylesheet" href="{{ asset('/css/pages/admin/admin.css') }}">
@@ -21,6 +21,8 @@
 					  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
 					  <li class="separator">&nbsp; </li>
 					  <li><a href="{{ route('categories') }}">Categories</a></li>
+            <li class="separator">&nbsp; </li>
+            <li><a href="{{ route('products') }}">Products</a></li>
             <li class="separator">&nbsp; </li>
             <li class="active"><a href="{{ route('users') }}" class="active">Users</a></li>
 					</ul>

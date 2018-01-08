@@ -13,6 +13,9 @@
 				<a href="{{ route('categories') }}"><i class="fa fa-list"></i>&nbsp; Categories</a>
 			</li>
 			<li>
+				<a href="{{ route('products') }}"><i class="fa fa-product-hunt"></i>&nbsp; Products</a>
+			</li>
+			<li>
 				<a href="{{ route('users')}}"><i class="fa fa-users"></i>&nbsp; Users</a>
 			</li>
 		</ul>

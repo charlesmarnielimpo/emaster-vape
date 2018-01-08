@@ -37,6 +37,9 @@ Route::group(['middleware' => 'admin'], function() {
 	Route::put('/admin/categories/{category}/ajaxUpdate', 'CategoryController@ajaxUpdate');
 	Route::delete('/admin/categories/{category}/ajaxDestroy', 'CategoryController@ajaxDestroy');
 	
+	// Products
+	Route::get('/admin/products', 'ProductController@index')->name('products');
+
 	// Users
 	Route::get('/admin/users', 'UserController@index')->name('users');
 });
