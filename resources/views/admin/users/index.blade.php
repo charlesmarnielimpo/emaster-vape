@@ -3,8 +3,8 @@
 @section('title', 'Users')
 
 @section('stylesheets')
-	<link rel="stylesheet" href="{{ asset('/css/pages/admin/admin.css') }}">
-	<link rel="stylesheet" href="{{ asset('/css/pages/users/users.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/admin/admin.css' : '/css/pages/admin/admin.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/users/users.css' : '/css/pages/users/users.css') }}">
 @endsection
 
 @section('content')
@@ -71,6 +71,6 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset('/js/classes/user.js') }}"></script>
-	<script src="{{ asset('/js/pages/users/users.js') }}"></script>
+  <script src="{{ asset(App::environment('production') ? 'public/js/classes/user.js' : '/js/classes/user.js') }}"></script>
+	<script src="{{ asset(App::environment('production') ? 'public/js/pages/users.js' : '/js/pages/users/users.js') }}"></script>
 @endsection

@@ -3,8 +3,8 @@
 @section('title', 'Products')
 
 @section('stylesheets')
-	<link rel="stylesheet" href="{{ asset('/css/pages/admin/admin.css') }}">
-	<link rel="stylesheet" href="{{ asset('/css/pages/products/products.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/admin/admin.css' : '/css/pages/admin/admin.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/products/products.css' : '/css/pages/products/products.css') }}">
 @endsection
 
 @section('content')
@@ -43,6 +43,6 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset('/js/classes/product.js') }}"></script>
-	<script src="{{ asset('/js/pages/products/products.js') }}"></script>
+    <script src="{{ asset(App::environment('production') ? 'public/js/classes/product.js' : '/js/classes/product.js') }}"></script>
+	<script src="{{ asset(App::environment('production') ? 'public/js/pages/products/products.js' : '/js/pages/products/products.js') }}"></script>
 @endsection
