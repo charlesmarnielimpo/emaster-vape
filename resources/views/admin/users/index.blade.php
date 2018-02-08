@@ -46,10 +46,10 @@
                   <img src="../img/components/img13.jpg" alt="" class="d-flex rounded-circle align-self-end mr-3" width="64">
                   <div class="media-body">
                     <div class="row">
-                      <div class="col-lg-9 col-md-7">
+                      <div class="col-lg-10 col-md-9">
                         <h6 class="mb-1 mt-2">{{ $user->first_name }} {{ $user->last_name }}</h6>
                       </div>
-                      <div class="col-lg-3 col-md-5">
+                      <div class="col-lg-2 col-md-3">
                         <span class="d-block text-sm"><i>Joined {{ $user->created_at->diffForHumans() }}</i></span>
                       </div>
                       <div class="col-lg-12 col-md-12">

@@ -33,7 +33,7 @@
 		<div id="content-wrapper">
       <div class="row">
         <div class="col-lg-12 col-md-12">
-         test
+        	test   		
         </div>
       </div>
 		</div>
