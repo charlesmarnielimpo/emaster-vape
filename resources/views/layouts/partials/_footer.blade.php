@@ -8,7 +8,7 @@
         <h3 class="widget-title">Get In Touch With Us</h3>
         <p class="text-white">Mobile #: +639305739237</p>
         <ul class="list-unstyled text-sm text-white">
-          <li><span class="opacity-50">Monday-Saturday:</span> 8:00 am - 5:00 pm</li>
+          <li>Monday - Saturday: 8:00 am - 5:00 pm</li>
         </ul>
         <p><a class="navi-link-light" href="#">support@emastervape.com</a></p>
         <a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a>
@@ -59,7 +59,7 @@
   <div class="row">
     <div class="col-md-7 padding-bottom-1x">
       <!-- Payment Methods-->
-      <div class="margin-bottom-1x" style="max-width: 615px;"><img src="{{ url('/img/payment_methods.png') }}" alt="Payment Methods">
+      <div class="margin-bottom-1x" style="max-width: 615px;"><img src="{{ url(App::environment('production') ? '/public/img/payment_methods.png' : '/img/payment_methods.png') }}" alt="Payment Methods">
       </div>
     </div>
     <div class="col-md-5 padding-bottom-1x">

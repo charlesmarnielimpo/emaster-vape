@@ -1,5 +1,5 @@
 <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html">
-  <div class="user-ava"><img src="{{ asset('/img/account/user-ava-md.jpg') }}" alt="Daniel Adams">
+  <div class="user-ava"><img src="{{ asset(App::environment('production') ? '/public/img/account/user-ava-md.jpg' : '/img/account/user-ava-md.jpg') }}" alt="Daniel Adams">
   </div>
   <div class="user-info">
     <h6 class="user-name">Daniel Adams</h6><span class="text-sm text-white opacity-60">290 Reward points</span>
@@ -16,7 +16,25 @@
 </div>
 <!-- Topbar-->
 <div class="topbar">
-  <div class="topbar-column"><a class="hidden-md-down" href="mailto:support@unishop.com"><i class="icon-mail"></i>&nbsp; support@unishop.com</a><a class="hidden-md-down" href="tel:00331697720"><i class="icon-bell"></i>&nbsp; 00 33 169 7720</a><a class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+  <div class="topbar-column">
+    <a class="hidden-md-down" href="mailto:support@emastervape.com">
+      <i class="icon-mail"></i>&nbsp; support@emastervape.com
+    </a>
+    <a class="hidden-md-down" href="tel:00331697720">
+      <i class="icon-bell"></i>&nbsp; 00 33 169 7720
+    </a>
+    <a class="social-button sb-facebook shape-none sb-dark" href="#" target="_blank">
+      <i class="socicon-facebook"></i>
+    </a>
+    <a class="social-button sb-twitter shape-none sb-dark" href="#" target="_blank">
+      <i class="socicon-twitter"></i>
+    </a>
+    <a class="social-button sb-instagram shape-none sb-dark" href="#" target="_blank">
+      <i class="socicon-instagram"></i>
+    </a>
+    <a class="social-button sb-pinterest shape-none sb-dark" href="#" target="_blank">
+      <i class="socicon-pinterest"></i>
+    </a>
   </div>
 </div>
 <!-- Navbar-->
@@ -32,7 +50,7 @@
       <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
       <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
       <!-- Site Logo-->
-      <a class="site-logo" href="{{ url('/') }}"><img src="{{ asset('/img/logo/logo.png') }}" alt="E-Master Vape" style="width: 50px;"></a>
+      <a class="site-logo" href="{{ url('/') }}"><img src="{{ asset(App::environment('production') ? '/public/img/logo/logo.png' : '/img/logo/logo.png') }}" alt="E-Master Vape" style="width: 50px;"></a>
     </div>
   </div>
   <!-- Main Navigation-->
@@ -54,10 +72,11 @@
           <ul class="toolbar-dropdown">
             @if(Auth::check()) 
               <li class="sub-menu-user">
-                <div class="user-ava"><img src="{{ asset('/img/account/user-ava-sm.jpg') }}" alt="Daniel Adams">
+                <div class="user-ava"><img src="{{ asset(App::environment('production') ? '/public/img/account/user-ava-sm.jpg' : '/img/account/user-ava-sm.jpg') }}" alt="Daniel Adams">
                 </div>
                 <div class="user-info">
-                  <h6 class="user-name">{{ Auth::user()->first_name. ' ' .Auth::user()->last_name}}</h6><span class="text-xs text-muted">290 Reward points</span>
+                  <h6 class="user-name">{{ Auth::user()->first_name. ' ' .Auth::user()->last_name}}</h6>
+                  <span class="text-xs text-muted">290 Reward points</span>
                 </div>
               </li>
                 <li><a href="#"><i class="icon icon-head"></i>My Profile</a></li>
@@ -73,13 +92,13 @@
         </div>
         <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span class="subtotal">$289.68</span>
           <div class="toolbar-dropdown">
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset('/img/cart-dropdown/01.jpg') }}" alt="Product"></a>
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/01.jpg' : '/img/cart-dropdown/01.jpg') }}" alt="Product"></a>
               <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a><span class="dropdown-product-details">1 x $43.90</span></div>
             </div>
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset('/img/cart-dropdown/02.jpg') }}" alt="Product"></a>
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/02.jpg' : '/img/cart-dropdown/02.jpg') }}" alt="Product"></a>
               <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Daily Fabric Cap</a><span class="dropdown-product-details">2 x $24.89</span></div>
             </div>
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset('/img/cart-dropdown/03.jpg') }}" alt="Product"></a>
+            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/03.jpg' : '/img/cart-dropdown/03.jpg') }}" alt="Product"></a>
               <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Haan Crossbody</a><span class="dropdown-product-details">1 x $200.00</span></div>
             </div>
             <div class="toolbar-dropdown-group">
