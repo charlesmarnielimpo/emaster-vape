@@ -2,7 +2,7 @@
 <aside id="admin-sidenav">
 	<div id="logo" style="text-align: center;">
 		<a href="{{ url('/') }}">
-			<img src="{{ asset('/img/logo/logo.png') }}" alt="E-master Vape" width="65px">
+			<img src="{{ asset(App::environment('production') ? 'public/img/logo/logo.png' : '/img/logo/logo.png') }}" alt="E-master Vape" width="65px">
 		</a>
 	</div>
 	<div id="sidenav">
