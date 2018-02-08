@@ -39,6 +39,8 @@ Route::group(['middleware' => 'admin'], function() {
 	
 	// Products
 	Route::get('/admin/products', 'ProductController@index')->name('products');
+	Route::get('/admin/products/create', 'ProductController@create')->name('create');
+	Route::post('admin/products/store', 'ProductController@store')->name('store');
 
 	// Users
 	Route::get('/admin/users', 'UserController@index')->name('users');

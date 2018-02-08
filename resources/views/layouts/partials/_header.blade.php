@@ -18,6 +18,7 @@
 
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
     <link rel="stylesheet" media="screen" href="{{ asset(App::environment('production') ? '/public/css/vendor.min.css' : '/css/vendor.min.css') }}">
+    
     <link rel="stylesheet" media="screen" href="{{ asset(App::environment('production') ? '/public/plugins/font-awesome/css/font-awesome.min.css' : '/plugins/font-awesome/css/font-awesome.min.css') }}">
 
     <!-- Main Template Styles-->

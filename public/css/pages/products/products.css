@@ -1,0 +1,8 @@
+.dropzone {
+	border: dashed 2px;
+	margin-bottom: 20px;
+}
+
+.dz-default.dz-message {
+	font-size: 1.5em;
+}

@@ -25,6 +25,9 @@
             <li class="active"><a href="{{ route('products') }}" class="active">Products</a></li>
 					</ul>
 				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<a href="{{ route('create') }}" class="btn btn-primary btn-sm pull-right" id="add-product-modal"><i class="icon icon-plus"></i>&nbsp;Add Product</a>
+				</div>
 			</div>
 		</div>
 		<!-- /Admin Breadcrumb -->
