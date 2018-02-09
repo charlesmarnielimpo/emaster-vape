@@ -35,24 +35,24 @@
                   <a href="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" data-hash="one" data-size="1000x667"></a>
                 </div>
                 <div class="gallery-item">
-                  <a href="{{ asset('/img/products/cloud-beast-prince.png') }}" data-hash="two" data-size="1000x667"></a>
+                  <a href="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" data-hash="two" data-size="1000x667"></a>
                 </div>
                 <div class="gallery-item">
-                  <a href="{{ asset('/img/products/g-priv2.png') }}" data-hash="three" data-size="1000x667"></a>
+                  <a href="{{ asset(App::environment('production') ? 'public/img/products/g-priv.png' : 'img/products/g-priv2.png') }}" data-hash="three" data-size="1000x667"></a>
                 </div>
                 <div class="gallery-item">
-                  <a href="{{ asset('/img/products/tfv8-big-baby-light-edition.png') }}" data-hash="four" data-size="1000x667"></a>
+                  <a href="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" data-hash="four" data-size="1000x667"></a>
                 </div>
                 <div class="gallery-item">
-                  <a href="{{ asset('/img/products/tfv8-big-family.png') }}" data-hash="five" data-size="1000x667"></a>
+                  <a href="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" data-hash="five" data-size="1000x667"></a>
                 </div>
               </div>
               <div class="product-carousel owl-carousel">
                 <div data-hash="one"><img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" alt="Product"></div>
-                <div data-hash="two"><img src="{{ asset('/img/products/cloud-beast-prince.png') }}" alt="Product"></div>
-                <div data-hash="three"><img src="{{ asset('/img/products/g-priv2.png') }}" alt="Product"></div>
-                <div data-hash="four"><img src="{{ asset('/img/products/tfv8-big-baby-light-edition.png') }}" alt="Product"></div>
-                <div data-hash="five"><img src="{{ asset('/img/products/tfv8-big-family.png') }}" alt="Product"></div>
+                <div data-hash="two"><img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product"></div>
+                <div data-hash="three"><img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv.png' : 'img/products/g-priv2.png') }}" alt="Product"></div>
+                <div data-hash="four"><img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product"></div>
+                <div data-hash="five"><img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product"></div>
               </div>
               <ul class="product-thumbnails">
                 <li class="active">
@@ -62,22 +62,22 @@
                 </li>
                 <li>
                   <a href="#two">
-                    <img src="{{ asset('/img/products/cloud-beast-prince.png') }}" alt="Product">
+                    <img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product">
                   </a>
                 </li>
                 <li>
                   <a href="#three">
-                    <img src="{{ asset('/img/products/g-priv2.png') }}" alt="Product">
+                    <img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv.png' : 'img/products/g-priv2.png') }}" alt="Product">
                   </a>
                 </li>
                 <li>
                   <a href="#four">
-                    <img src="{{ asset('/img/products/tfv8-big-baby-light-edition.png') }}" alt="Product">
+                    <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product">
                   </a>
                 </li>
                 <li>
                   <a href="#five">
-                    <img src="{{ asset('/img/products/tfv8-big-family.png') }}" alt="Product">
+                    <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product">
                   </a>
                 </li>
               </ul>
