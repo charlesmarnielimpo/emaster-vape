@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Images;
 
 class Product extends Model
 {
-  public function product_image()
+  public function priceFormat()
   {
-  	return $this->hasMany('App\Product_images');
+  	return number_format($this->price, 2);
   }
 }
