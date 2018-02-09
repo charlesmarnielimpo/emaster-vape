@@ -131,13 +131,13 @@
         <div class="container">
           <h3 class="text-center mb-30 pb-2">Popular Brands</h3>
           <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/01.png @else img/brands/01.png @endif" alt="Adidas">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/02.png @else img/brands/02.png @endif" alt="Brooks">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/03.png @else img/brands/03.png @endif" alt="Valentino">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/04.png @else img/brands/04.png @endif" alt="Nike">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/05.png @else img/brands/05.png @endif" alt="Puma">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/06.png @else img/brands/06.png @endif" alt="New Balance">
-            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/07.png @else img/brands/07.png @endif" alt="Dior"></div>
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/1.png @else img/brands/1.png @endif" alt="Adidas">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/2.png @else img/brands/2.png @endif" alt="Brooks">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/3.png @else img/brands/3.png @endif" alt="Valentino">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/4.png @else img/brands/4.png @endif" alt="Nike">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/5.png @else img/brands/5.png @endif" alt="Puma">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/6.png @else img/brands/6.png @endif" alt="New Balance">
+            <img class="d-block w-110 opacity-75 m-auto" src="@if(App::environment('production')) public/img/brands/7.png @else img/brands/7.png @endif" alt="Dior"></div>
         </div>
       </section>
       <!-- Services-->
