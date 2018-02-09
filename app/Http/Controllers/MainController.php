@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
 
 class MainController extends Controller
 {
@@ -13,7 +15,19 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('main');
+        $categories = Category::all();
+        $products = Product::inRandomOrder()->take(8)->get();
+        $topsellers = Product::inRandomOrder()->take(3)->get();
+        $newarrivals = Product::inRandomOrder()->take(3)->get();
+        $bestrateds = Product::inRandomOrder()->take(3)->get();
+
+        return view('main')->with([
+            'products' => $products,
+            'categories' => $categories,
+            'topsellers' => $topsellers,
+            'newarrivals' => $newarrivals,
+            'bestrateds' => $bestrateds
+        ]);
     }
 
     /**
