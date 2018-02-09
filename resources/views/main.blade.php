@@ -17,7 +17,7 @@
                 <div class="px-3 text-center">
                   <h2 class="display-4 text-white text-shadow">{{ $category->category_name }}</h2>
                   <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from $56.00</h5>
-                  <div class="view-button"><a class="btn btn-primary" href="shop-grid-ls.html">View Collection</a></div>
+                  <div class="view-button"><a class="btn btn-primary" href="#">View Collection</a></div>
                 </div>
               </div>
             </div>
@@ -35,10 +35,12 @@
             <div class="grid-item">
               <div class="product-card">
                 <div class="product-badge text-danger">50% Off</div>
-                  <a class="product-thumb" href="#">
+                  <a class="product-thumb" href="{{ route('shop.show', $product->slug) }}">
                     <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$product->slug.'.png' : '/img/products/'.$product->slug.'.png') }}" alt="Product">
                   </a>
-                <h3 class="product-title"><a href="#">{{ $product->name }}</a></h3>
+                <h3 class="product-title">
+                  <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
+                </h3>
                 <h4 class="product-price">
                   <del>Php 99.99</del>Php {{ $product->priceFormat() }}
                 </h4>
@@ -52,7 +54,7 @@
             </div>
           @endforeach
         </div>
-        <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="shop-grid-ls.html">View All Products</a></div>
+        <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="#">View All Products</a></div>
       </section>
       <!-- Product Widgets-->
       <section class="container padding-bottom-2x">
@@ -65,19 +67,19 @@
                 <!-- Entry-->
                 <div class="entry">
                   <div class="entry-thumb">
-                    <a href="#">
+                    <a href="{{ route('shop.show', $topseller->slug) }}">
                       <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$topseller->slug.'.png' : '/img/products/'.$topseller->slug.'.png') }}" alt="Product">
                     </a>
                   </div>
                   <div class="entry-content">
                     <h4 class="entry-title">
-                      <a href="#">{{ $topseller->name }}</a>
+                      <a href="{{ route('shop.show', $topseller->slug) }}">{{ $topseller->name }}</a>
                     </h4>
                     <span class="entry-meta">Php {{ $topseller->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
-              <a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
+              <a class="btn btn-outline-secondary btn-sm mb-0" href="#">View More</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
@@ -87,19 +89,19 @@
                 <!-- Entry-->
                 <div class="entry">
                   <div class="entry-thumb">
-                    <a href="#">
+                    <a href="{{ route('shop.show', $newarrival->slug) }}">
                       <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$newarrival->slug.'.png' : '/img/products/'.$newarrival->slug.'.png') }}" alt="Product">
                     </a>
                   </div>
                   <div class="entry-content">
                     <h4 class="entry-title">
-                      <a href="#">{{ $newarrival->name }}</a>
+                      <a href="{{ route('shop.show', $newarrival->slug) }}">{{ $newarrival->name }}</a>
                     </h4>
                     <span class="entry-meta">Php {{ $newarrival->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
-              <a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
+              <a class="btn btn-outline-secondary btn-sm mb-0" href="#">View More</a>
             </div>
           </div>
           <div class="col-md-4 col-sm-6">
@@ -109,19 +111,19 @@
                 <!-- Entry-->
                 <div class="entry">
                   <div class="entry-thumb">
-                    <a href="#">
+                    <a href="{{ route('shop.show', $bestrated->slug) }}">
                       <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$bestrated->slug.'.png' : '/img/products/'.$bestrated->slug.'.png') }}" alt="Product">
                     </a>
                   </div>
                   <div class="entry-content">
                     <h4 class="entry-title">
-                      <a href="#">{{ $bestrated->name }}</a>
+                      <a href="{{ route('shop.show', $bestrated->slug) }}">{{ $bestrated->name }}</a>
                     </h4>
                     <span class="entry-meta">Php {{ $bestrated->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
-              <a class="btn btn-outline-secondary btn-sm mb-0" href="shop-grid-ls.html">View More</a>
+              <a class="btn btn-outline-secondary btn-sm mb-0" href="#">View More</a>
             </div>
           </div>
         </div>

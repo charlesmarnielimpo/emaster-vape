@@ -6,7 +6,7 @@
   </div></a>
   <nav class="offcanvas-menu">
     <ul class="menu">
-      <li class="has-children active"><span><a href="#"><span>Home</span></a></li>
+      <li class="has-children active"><span><a href="{{ route('main.index') }}"><span>Home</span></a></li>
       <li class="has-children"><span><a href="#"><span>Vaporizers</span></a></li>
       <li class="has-children"><span><a href="#"><span>Liquids</span></a></li>
       <li class="has-children"><span><a href="#">Tanks</a></li>
@@ -56,7 +56,7 @@
   <!-- Main Navigation-->
   <nav class="site-menu">
     <ul>
-      <li class="active"><a href="#"><span>Home</span></a></li>
+      <li class="active"><a href="{{ route('main.index') }}"><span>Home</span></a></li>
       <li><a href="#"><span>Vaporizers</span></a></li>
       <li><a href="#"><span>Liquids</span></a></li>
       <li><a href="#"><span>Tanks</span></a></li>
@@ -90,16 +90,23 @@
             @endif
           </ul>
         </div>
-        <div class="cart"><a href="cart.html"></a><i class="icon-bag"></i><span class="count">3</span><span class="subtotal">$289.68</span>
+        <div class="cart">
+          <a href="cart.html"></a>
+          <i class="icon-bag"></i>
+          <span class="count">3</span>
+          <span class="subtotal">$289.68</span>
           <div class="toolbar-dropdown">
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/01.jpg' : '/img/cart-dropdown/01.jpg') }}" alt="Product"></a>
-              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a><span class="dropdown-product-details">1 x $43.90</span></div>
-            </div>
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/02.jpg' : '/img/cart-dropdown/02.jpg') }}" alt="Product"></a>
-              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Daily Fabric Cap</a><span class="dropdown-product-details">2 x $24.89</span></div>
-            </div>
-            <div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="shop-single.html"><img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/03.jpg' : '/img/cart-dropdown/03.jpg') }}" alt="Product"></a>
-              <div class="dropdown-product-info"><a class="dropdown-product-title" href="shop-single.html">Haan Crossbody</a><span class="dropdown-product-details">1 x $200.00</span></div>
+            <div class="dropdown-product-item">
+              <span class="dropdown-product-remove">
+                <i class="icon-cross"></i>
+              </span>
+              <a class="dropdown-product-thumb" href="shop-single.html">
+                <img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/01.jpg' : '/img/cart-dropdown/01.jpg') }}" alt="Product">
+              </a>
+              <div class="dropdown-product-info">
+                <a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a>
+                <span class="dropdown-product-details">1 x $43.90</span>
+              </div>
             </div>
             <div class="toolbar-dropdown-group">
               <div class="column"><span class="text-lg">Total:</span></div>
