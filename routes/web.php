@@ -12,8 +12,17 @@
 */
 
 Route::get('/', 'MainController@index')->name('main.index');
+
+/**********************
+ ******** SHOP ********
+ **********************/
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
+
+/**********************
+ ******** CART ********
+ **********************/
+Route::get('/cart', 'CartController@index')->name('cart.index');
 
 /**********************
  * LOGIN AND SIGN UP  *

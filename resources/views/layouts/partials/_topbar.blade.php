@@ -91,7 +91,7 @@
           </ul>
         </div>
         <div class="cart">
-          <a href="cart.html"></a>
+          <a href="{{ route('cart.index') }}"></a>
           <i class="icon-bag"></i>
           <span class="count">3</span>
           <span class="subtotal">$289.68</span>

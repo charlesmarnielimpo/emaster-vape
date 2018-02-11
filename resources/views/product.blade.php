@@ -48,11 +48,21 @@
                 </div>
               </div>
               <div class="product-carousel owl-carousel">
-                <div data-hash="one"><img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" alt="Product"></div>
-                <div data-hash="two"><img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product"></div>
-                <div data-hash="three"><img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv2.png' : 'img/products/g-priv2.png') }}" alt="Product"></div>
-                <div data-hash="four"><img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product"></div>
-                <div data-hash="five"><img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product"></div>
+                <div data-hash="one">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" alt="Product">
+                </div>
+                <div data-hash="two">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product">
+                </div>
+                <div data-hash="three">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv2.png' : 'img/products/g-priv2.png') }}" alt="Product">
+                </div>
+                <div data-hash="four">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product">
+                </div>
+                <div data-hash="five">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product">
+                </div>
               </div>
               <ul class="product-thumbnails">
                 <li class="active">
@@ -102,7 +112,7 @@
             <div class="row margin-top-1x">
               <div class="col-sm-4">
                 <div class="form-group">
-                  <label for="size">Men's size</label>
+                  <label for="size">Size</label>
                   <select class="form-control" id="size">
                     <option>Chooze size</option>
                     <option>11.5</option>
@@ -117,7 +127,7 @@
               </div>
               <div class="col-sm-5">
                 <div class="form-group">
-                  <label for="color">Choose color</label>
+                  <label for="color">Color</label>
                   <select class="form-control" id="color">
                     <option>White/Red/Blue</option>
                     <option>Black/Orange/Green</option>
@@ -139,7 +149,10 @@
               </div>
             </div>
             <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div>
-            <div class="padding-bottom-1x mb-2"><span class="text-medium">Category:&nbsp;</span><a class="navi-link" href="#">Men’s shoes,</a><a class="navi-link" href="#"> Snickers,</a><a class="navi-link" href="#"> Sport shoes</a></div>
+            <div class="padding-bottom-1x mb-2">
+              <span class="text-medium">Category:&nbsp;</span>
+              <a class="navi-link" href="#">Vaporizers</a>
+            </div>
             <hr class="mb-3">
             <div class="d-flex flex-wrap justify-content-between">
               <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
@@ -265,15 +278,17 @@
             <div class="grid-item">
               <div class="product-card">
                 <div class="product-badge text-danger">22% Off</div>
-                <a class="product-thumb" href="shop-single.html">
+                <a class="product-thumb" href="{{ route('shop.show', $item->slug) }}">
                   <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->slug.'.png' : '/img/products/'.$item->slug.'.png') }}" alt="Product">
                 </a>
-                <h3 class="product-title"><a href="#">{{ $item->name }}</a></h3>
+                <h3 class="product-title"><a href="{{ route('shop.show', $item->slug) }}">{{ $item->name }}</a></h3>
                 <h4 class="product-price">
                   <del>Php 44.95</del>Php {{ $item->priceFormat() }}
                 </h4>
                 <div class="product-buttons">
-                  <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                  <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
+                    <i class="icon-heart"></i>
+                  </button>
                   <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
                 </div>
               </div>
