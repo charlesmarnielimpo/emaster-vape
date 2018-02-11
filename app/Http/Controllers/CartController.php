@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cart;
 use App\Product;
 
 class CartController extends Controller
@@ -37,7 +38,25 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $duplicate = Cart::search(function($cartItem, $rowId) use ($request) {
+            return $cartItem->id === $request->id;
+        });
+
+        if ($duplicate->isNotEmpty()) {
+            return redirect()->route('cart.index');
+        }
+
+        Cart::add($request->id, $request->name, 1, $request->price)
+                ->associate('App\Product');
+
+        return redirect()->route('cart.index');
+    }
+
+    public function empty()
+    {
+        Cart::destroy();
+
+        return redirect()->route('cart.index');
     }
 
     /**
@@ -82,6 +101,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back();
     }
 }

@@ -48,7 +48,13 @@
                   <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
                     <i class="icon-heart"></i>
                   </button>
-                  <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+                  <form action="{{ route('cart.store') }}" method="POST" style="display: inline-block;">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{ $product->id}}">
+                    <input type="hidden" name="name" value="{{ $product->name}}">
+                    <input type="hidden" name="price" value="{{ $product->price}}">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                  </form>
                 </div>
               </div>
             </div>

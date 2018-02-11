@@ -40,33 +40,55 @@
               <th class="text-center">Quantity</th>
               <th class="text-center">Subtotal</th>
               <th class="text-center">Discount</th>
-              <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+              <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="{{ route('cart.empty') }}">Clear Cart</a></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="img/shop/cart/01.jpg" alt="Product"></a>
-                  <div class="product-info">
-                    <h4 class="product-title"><a href="shop-single.html">Unionbay Park</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
-                  </div>
-                </div>
-              </td>
-              <td class="text-center">
-                <div class="count-input">
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </td>
-              <td class="text-center text-lg text-medium">$43.90</td>
-              <td class="text-center text-lg text-medium">$18.00</td>
-              <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
-            </tr>
+            @if(Cart::count() > 0)
+              @foreach(Cart::content() as $item)
+                <tr>
+                  <td>
+                    <div class="product-item">
+                      <a class="product-thumb" href="{{ route('shop.show', $item->model->slug) }}">
+                        <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->model->slug.'.png' : 'img/products/'.$item->model->slug.'.png') }}" alt="Product">
+                      </a>
+                      <div class="product-info">
+                        <h4 class="product-title">
+                          <a href="{{ route('shop.show', $item->model->slug) }}">{{ $item->name }}</a>
+                        </h4>
+                        <span><em>Size:</em> {{ $item->model->details }}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <div class="count-input">
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td class="text-center text-lg text-medium">Php {{ $item->model->priceFormat() }}</td>
+                  <td class="text-center text-lg text-medium">$18.00</td>
+                  <td class="text-center">
+                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                      {{ csrf_field() }}
+                      {{ method_field('DELETE') }}
+                      <button type="submit" class="remove-from-cart btn-link" style="background: transparent; cursor: pointer; border: none;" data-toggle="tooltip" title="Remove item">
+                        <i class="icon-cross"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              @endforeach
+            @else
+              <tr class="text-center">
+                <td colspan="5">No item(s) in your cart.</td>
+              </tr>
+            @endif
           </tbody>
         </table>
       </div>
@@ -77,11 +99,18 @@
             <button class="btn btn-outline-primary btn-sm" type="submit">Apply Coupon</button>
           </form>
         </div>
-        <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
+        <div class="column text-lg">Subtotal: <span class="text-medium">Php {{ Cart::subtotal() }}</span></div>
       </div>
       <div class="shopping-cart-footer">
-        <div class="column"><a class="btn btn-outline-secondary" href="shop-grid-ls.html"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
-        <div class="column"><a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="checkout-address.html">Checkout</a></div>
+        <div class="column">
+          <a class="btn btn-outline-secondary" href="{{ route('shop.index') }}">
+            <i class="icon-arrow-left"></i>&nbsp;Back to Shopping
+          </a>
+        </div>
+        <div class="column">
+          <a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a>
+          <a class="btn btn-success" href="checkout-address.html">Checkout</a>
+        </div>
       </div>
       <!-- Related Products Carousel-->
       <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
@@ -105,7 +134,13 @@
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
                   <i class="icon-heart"></i>
                 </button>
-                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+                <form action="{{ route('cart.store') }}" method="POST" style="display: inline-block;">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{ $item->id}}">
+                  <input type="hidden" name="name" value="{{ $item->name}}">
+                  <input type="hidden" name="price" value="{{ $item->price}}">
+                  <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
               </div>
             </div>
           </div> 

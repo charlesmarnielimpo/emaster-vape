@@ -93,27 +93,48 @@
         <div class="cart">
           <a href="{{ route('cart.index') }}"></a>
           <i class="icon-bag"></i>
-          <span class="count">3</span>
-          <span class="subtotal">$289.68</span>
+          @if(Cart::instance('default')->count() > 0)
+            <span class="count">{{ Cart::instance('default')->count() }}</span>
+          @endif
+
+          @if(Cart::count() < 1)
+
+          @else
+            <span class="subtotal">Php {{ Cart::subtotal() }}</span>
+          @endif
           <div class="toolbar-dropdown">
-            <div class="dropdown-product-item">
-              <span class="dropdown-product-remove">
-                <i class="icon-cross"></i>
-              </span>
-              <a class="dropdown-product-thumb" href="shop-single.html">
-                <img src="{{ asset(App::environment('production') ? '/public/img/cart-dropdown/01.jpg' : '/img/cart-dropdown/01.jpg') }}" alt="Product">
-              </a>
-              <div class="dropdown-product-info">
-                <a class="dropdown-product-title" href="shop-single.html">Unionbay Park</a>
-                <span class="dropdown-product-details">1 x $43.90</span>
+            @forelse(Cart::content() as $item)
+              <div class="dropdown-product-item text-left">
+                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST" class="dropdown-product-remove">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <button type="submit" class="btn-link" style="background: transparent; cursor: pointer; border: none;" data-toggle="tooltip" title="Remove item">
+                    <i class="icon-cross" style="color: red;"></i>
+                  </button>
+                </form>
+                <a class="dropdown-product-thumb" href="{{ route('shop.show', $item->model->slug) }}">
+                  <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->model->slug.'.png' : 'img/products/'.$item->model->slug.'.png') }}" alt="{{ $item->name }}">
+                </a>
+                <div class="dropdown-product-info">
+                  <a class="dropdown-product-title" href="{{ route('shop.show', $item->model->slug) }}">{{ $item->name }}</a>
+                  <span class="dropdown-product-details">{{ $item->qty }} x Php {{ $item->model->priceFormat() }}</span>
+                </div>
               </div>
-            </div>
+            @empty
+              <small>No item(s) in your cart.</small>
+            @endforelse
+            @if(Cart::instance('default')->count() > 0)
+              <div class="toolbar-dropdown-group">
+                <div class="column">
+                  <span class="text-lg">Total:</span>
+                </div>
+                <div class="column text-right">
+                  <span class="text-lg text-medium">Php {{ Cart::subtotal() }} &nbsp;</span>
+                </div>
+              </div>
+            @endif
             <div class="toolbar-dropdown-group">
-              <div class="column"><span class="text-lg">Total:</span></div>
-              <div class="column text-right"><span class="text-lg text-medium">$289.68&nbsp;</span></div>
-            </div>
-            <div class="toolbar-dropdown-group">
-              <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="#">View Cart</a></div>
+              <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="{{ route('cart.index') }}">View Cart</a></div>
               <div class="column"><a class="btn btn-sm btn-block btn-success" href="#">Checkout</a></div>
             </div>
           </div>
