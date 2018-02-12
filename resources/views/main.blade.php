@@ -11,13 +11,15 @@
         <div class="row mx-0">
           <!-- Category-->
           @foreach($categories as $category)
-            <div class="category-card col-md-6 col-sm-12 fw-section padding-top-7x padding-bottom-7x" style="background-image: url({{ asset(App::environment('production') ? '/public/img/categories/'.$category->category_name.'.jpg' : '/img/categories/'.$category->category_name.'.jpg') }});">
+            <div class="category-card col-md-6 col-sm-12 fw-section padding-top-7x padding-bottom-7x" style="background-image: url({{ asset(App::environment('production') ? 'public/img/categories/'.$category->name.'.jpg' : 'img/categories/'.$category->name.'.jpg') }});">
               <span class="overlay" style="background-color: #000; opacity: .5;"></span>
               <div class="d-flex justify-content-center">
                 <div class="px-3 text-center">
-                  <h2 class="display-4 text-white text-shadow">{{ $category->category_name }}</h2>
+                  <h2 class="display-4 text-white text-shadow">{{ $category->name }}</h2>
                   <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from $56.00</h5>
-                  <div class="view-button"><a class="btn btn-primary" href="#">View Collection</a></div>
+                  <div class="view-button">
+                    <a class="btn btn-primary" href="{{ route('shop.index', ['category' => $category->slug]) }}">View Collection</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -34,15 +36,16 @@
           @foreach($products as $product)
             <div class="grid-item">
               <div class="product-card">
-                <div class="product-badge text-danger">50% Off</div>
+                {{-- <div class="product-badge text-danger">50% Off</div> --}}
                   <a class="product-thumb" href="{{ route('shop.show', $product->slug) }}">
-                    <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$product->slug.'.png' : '/img/products/'.$product->slug.'.png') }}" alt="Product">
+                    <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$product->slug.'.png' : '/img/products/'.$product->slug.'.png') }}" alt="{{ $product->name }}">
                   </a>
                 <h3 class="product-title">
                   <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
                 </h3>
                 <h4 class="product-price">
-                  <del>Php 99.99</del>Php {{ $product->priceFormat() }}
+                  {{-- <del>Php 99.99</del> --}}
+                  Php {{ $product->priceFormat() }}
                 </h4>
                 <div class="product-buttons">
                   <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
@@ -53,14 +56,16 @@
                     <input type="hidden" name="id" value="{{ $product->id}}">
                     <input type="hidden" name="name" value="{{ $product->name}}">
                     <input type="hidden" name="price" value="{{ $product->price}}">
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
                   </form>
                 </div>
               </div>
             </div>
           @endforeach
         </div>
-        <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="#">View All Products</a></div>
+        <div class="text-center">
+          <a class="btn btn-outline-secondary margin-top-none" href="{{ route('shop.index') }}">View All Products</a>
+        </div>
       </section>
       <!-- Product Widgets-->
       <section class="container padding-bottom-2x">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ShopController extends Controller
 {
@@ -14,7 +15,23 @@ class ShopController extends Controller
      */
     public function index()
     {
-        
+        if (request()->category) {
+            $products = Product::with('categories')->whereHas('categories', function($query) {
+                $query->where('slug', request()->category);
+            })->paginate(9);
+            $categories = Category::withCount('products')->get();
+            $categoryName = $categories->where('slug', request()->category)->first()->name;
+        } else {
+            $categories = Category::withCount('products')->get();
+            $products = Product::where('featured', true)->paginate(12);
+            $categoryName = 'Featured';
+        }
+
+        return view('shop')->with([
+            'categories' => $categories,
+            'categoryName' => $categoryName,
+            'products' => $products
+        ]);
     }
     /**
      * Display the specified resource.

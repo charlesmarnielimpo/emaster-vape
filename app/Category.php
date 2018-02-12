@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product;
 
 class Category extends Model
 {
@@ -12,11 +13,16 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'category_name'
+        'name'
     ];
+
+    public function products()
+    {
+        return $this->hasOne('App\Product', 'category_id', 'id');
+    }
 
     public function setCategoryNameAttribute($value)
     {
-        $this->attributes['category_name'] = ucwords($value);
+        $this->attributes['name'] = ucwords($value);
     }
 }

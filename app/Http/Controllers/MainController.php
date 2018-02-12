@@ -16,7 +16,7 @@ class MainController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $products = Product::inRandomOrder()->take(8)->get();
+        $products = Product::where('featured', true)->inRandomOrder()->take(8)->get();
         $topsellers = Product::inRandomOrder()->take(3)->get();
         $newarrivals = Product::inRandomOrder()->take(3)->get();
         $bestrateds = Product::inRandomOrder()->take(3)->get();

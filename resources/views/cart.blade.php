@@ -36,7 +36,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Product Name</th>
+              <th width="50%">Product Name</th>
               <th class="text-center">Quantity</th>
               <th class="text-center">Subtotal</th>
               <th class="text-center">Discount</th>
@@ -56,7 +56,7 @@
                         <h4 class="product-title">
                           <a href="{{ route('shop.show', $item->model->slug) }}">{{ $item->name }}</a>
                         </h4>
-                        <span><em>Size:</em> {{ $item->model->details }}</span>
+                        <span>{{ $item->model->details }}</span>
                       </div>
                     </div>
                   </td>
@@ -139,7 +139,7 @@
                   <input type="hidden" name="id" value="{{ $item->id}}">
                   <input type="hidden" name="name" value="{{ $item->name}}">
                   <input type="hidden" name="price" value="{{ $item->price}}">
-                  <button type="submit" class="btn btn-primary">Add to Cart</button>
+                  <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
                 </form>
               </div>
             </div>

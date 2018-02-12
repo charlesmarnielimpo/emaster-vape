@@ -4446,7 +4446,7 @@ video {
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
     color: #9da9b9;
-    content: ''
+    /*content: ''*/
 }
 .widget-categories ul>li>a,
 .widget-links ul>li>a {
@@ -6148,7 +6148,10 @@ video {
     margin-bottom: 10px;
     font-size: 16px;
     font-weight: normal;
-    text-align: center
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;;
 }
 .product-card .product-title>a {
     transition: color .3s;

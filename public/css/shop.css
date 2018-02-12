@@ -1,0 +1,42 @@
+.pagination {
+	border-top: none;
+	margin: 0px 0 15px -20px;
+}
+
+.pagination > li {
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 34px;
+	text-align: center;
+}
+
+.pagination > li > span {
+	display: block;
+	width: 36px;
+	height: 36px;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	line-height: 34px;
+	transition: all .3s;
+}
+
+.pagination > li > a {
+	text-decoration: none;
+}
+
+.pagination li.active>span {
+	border-color: #0da9ef;
+	background-color: #0da9ef;
+	color: #fff;
+}
+
+ul.pagination {
+	list-style: none;
+}
+
+ul {
+	margin-bottom: 0;
+}

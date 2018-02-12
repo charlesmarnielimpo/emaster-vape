@@ -16,9 +16,14 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')
+                  ->references('id')->on('categories')
+                  ->onDelete('cascade');
+            $table->boolean('featured')->default(false);
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('details')->nullable();
+            $table->text('details')->nullable();
             $table->float('price', 8, 2);
             $table->text('description');
             $table->timestamps();

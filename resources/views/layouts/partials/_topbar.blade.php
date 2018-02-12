@@ -56,11 +56,8 @@
   <!-- Main Navigation-->
   <nav class="site-menu">
     <ul>
-      <li class="active"><a href="{{ route('main.index') }}"><span>Home</span></a></li>
-      <li><a href="#"><span>Vaporizers</span></a></li>
-      <li><a href="#"><span>Liquids</span></a></li>
-      <li><a href="#"><span>Tanks</span></a></li>
-      <li><a href="#"><span>Accessories</span></a></li>
+      <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('main.index') }}"><span>Home</span></a></li>
+      <li class="{{ Request::is('shop') ? 'active' : '' }}"><a href="{{ route('shop.index') }}"><span>Shop</span></a></li>
     </ul>
   </nav>
   <!-- Toolbar-->
