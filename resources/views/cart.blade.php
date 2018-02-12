@@ -2,6 +2,10 @@
 
 @section('title', 'Cart')
 
+@section('stylesheets')
+  <link rel="stylesheet" href="{{ url('/plugins/toastr/toastr.min.css') }}">
+@endsection
+
 @section('content')
   <!-- Off-Canvas Wrapper-->
   <div class="offcanvas-wrapper">
@@ -62,17 +66,15 @@
                   </td>
                   <td class="text-center">
                     <div class="count-input">
-                      <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-control quantity" name="quantity" data-id="{{ $item->rowId }}">
+                        @for($i = 1; $i < 6; $i++)
+                          <option {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                        @endfor
                       </select>
                     </div>
                   </td>
                   <td class="text-center text-lg text-medium">Php {{ $item->model->priceFormat() }}</td>
-                  <td class="text-center text-lg text-medium">$18.00</td>
+                  <td class="text-center text-lg text-medium">--</td>
                   <td class="text-center">
                     <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                       {{ csrf_field() }}
@@ -99,7 +101,7 @@
             <button class="btn btn-outline-primary btn-sm" type="submit">Apply Coupon</button>
           </form>
         </div>
-        <div class="column text-lg">Subtotal: <span class="text-medium">Php {{ Cart::subtotal() }}</span></div>
+        <div class="column text-lg">Total: <span class="text-medium">Php {{ Cart::subtotal() }}</span></div>
       </div>
       <div class="shopping-cart-footer">
         <div class="column">
@@ -108,7 +110,7 @@
           </a>
         </div>
         <div class="column">
-          <a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a>
+          {{-- <a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a> --}}
           <a class="btn btn-success" href="checkout-address.html">Checkout</a>
         </div>
       </div>
@@ -148,4 +150,49 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('scripts')
+  <script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
+  <script>
+    $('document').ready(function() {
+      var quantity = $('.quantity');
+
+      quantity.each(function() {
+        $(this).on('change', function() {
+          var id = $(this).attr('data-id');
+          var quantity = $(this).val();
+          var CSRF = $("meta[name='csrf-token']").attr('content');
+
+          data = { 
+            _token: CSRF,
+            quantity: quantity,
+            id: id,
+          };
+
+          $.ajax({
+            url: '/cart/'+ id,
+            type: 'PATCH',
+            dataType: "json",
+            data: data,
+            success: function(data){
+              if (data.status == 'OK') {
+                toastr.success('Item quantity was successfully updated.', 'Success!');
+                toastr.options = {
+                  "progressBar": true,
+                }
+                window.location.href = "{{ route('cart.index') }}";
+              } else {
+                toastr.error('Updating item quantity failed.', 'Error!');
+                toastr.options = {
+                  "progressBar": true,
+                }
+                window.location.href = "{{ route('cart.index') }}";
+              }
+            }
+          });
+        });
+      });
+    });
+  </script>
 @endsection
