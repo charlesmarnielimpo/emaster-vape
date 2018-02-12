@@ -91,8 +91,8 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         Cart::update($id, $request->quantity);
-
-        return array('status' => 'OK');
+        
+        return response()->json(['success' => true]);
     }
 
     /**

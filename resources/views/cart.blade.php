@@ -156,8 +156,9 @@
 @endsection
 
 @section('scripts')
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js' : 'plugins/toastr/toastr.min.js' )}}"></script>
-  <script>
+ {{--  <script>
     $('document').ready(function() {
       if ($('.text-medium').text() == 'Php 0.00') {
         $('.text-lg').hide();
@@ -186,7 +187,7 @@
             // dataType: "json",
             data: data,
             success: function(data){
-              if (data.status ==  'OK') {
+              if (data.response ==  'OK') {
                 toastr.success('Item quantity was successfully updated.', 'Success!');
                 toastr.options = {
                   "progressBar": true,
@@ -206,5 +207,30 @@
         });
       });
     });
+  </script> --}}
+  <script>
+    (function() {
+      const className = document.querySelectorAll('.quantity');
+
+      Array.from(className).forEach(function(element) {
+        const id = element.getAttribute('data-id');
+        element.addEventListener('change', function() {
+          axios.patch(`/cart/${id}`, {
+            quantity: this.value
+          })
+          .then(function (response) {
+            // console.log(response);
+            toastr.success('Item quantity was successfully updated.', 'Success!');
+            toastr.options = {
+              "progressBar": true,
+            }
+            window.location.href = "{{ route('cart.index') }}"
+          })
+          .catch(function (error) {
+            console.log(error);
+          });        
+        });
+      });
+    })();
   </script>
 @endsection
