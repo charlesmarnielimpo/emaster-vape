@@ -172,7 +172,7 @@
 
           $.ajax({
             url: '/cart/'+ id,
-            type: 'PATCH',
+            type: 'PUT',
             dataType: "json",
             data: data,
             success: function(data){
@@ -189,6 +189,8 @@
                 }
                 window.location.href = "{{ route('cart.index') }}";
               }
+            }, error:function (xhr, error, ajaxOptions, thrownError){
+              console.log(xhr.responseText);
             }
           });
         });
