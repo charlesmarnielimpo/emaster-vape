@@ -90,15 +90,9 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cart = Cart::update($id, $request->quantity);
+        Cart::update($id, $request->quantity);
 
-        if ($cart) {
-            $notification = array(
-                'alert-type' => 'success'
-            );
-        }
-
-        return array('status' => 'OK', 'notification' => $notification);
+        return array('status' => 'OK');
     }
 
     /**

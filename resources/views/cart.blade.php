@@ -40,11 +40,14 @@
         <table class="table">
           <thead>
             <tr>
-              <th width="50%">Product Name</th>
+              <th width="40%">Product Name</th>
               <th class="text-center">Quantity</th>
+              <th class="text-center">Price</th>
               <th class="text-center">Subtotal</th>
               <th class="text-center">Discount</th>
-              <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="{{ route('cart.empty') }}">Clear Cart</a></th>
+              <th class="text-center">
+                <a class="btn btn-sm btn-outline-danger" href="{{ route('cart.empty') }}" id="btn-cart-empty">Clear Cart</a>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -74,6 +77,7 @@
                     </div>
                   </td>
                   <td class="text-center text-lg text-medium">Php {{ $item->model->priceFormat() }}</td>
+                  <td class="text-center text-lg text-medium">Php {{ Cart::subtotal() }}</td>
                   <td class="text-center text-lg text-medium">--</td>
                   <td class="text-center">
                     <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
@@ -88,7 +92,7 @@
               @endforeach
             @else
               <tr class="text-center">
-                <td colspan="5">No item(s) in your cart.</td>
+                <td colspan="6">No item(s) in your cart.</td>
               </tr>
             @endif
           </tbody>
@@ -98,7 +102,7 @@
         <div class="column">
           <form class="coupon-form" method="post">
             <input class="form-control form-control-sm" type="text" placeholder="Coupon code" required>
-            <button class="btn btn-outline-primary btn-sm" type="submit">Apply Coupon</button>
+            <button class="btn btn-outline-primary btn-sm" type="submit" id="btn-cart-coupon">Apply Coupon</button>
           </form>
         </div>
         <div class="column text-lg">Total: <span class="text-medium">Php {{ Cart::subtotal() }}</span></div>
@@ -110,7 +114,6 @@
           </a>
         </div>
         <div class="column">
-          {{-- <a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a> --}}
           <a class="btn btn-success" href="checkout-address.html">Checkout</a>
         </div>
       </div>
@@ -156,6 +159,13 @@
   <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js' : 'plugins/toastr/toastr.min.js' )}}"></script>
   <script>
     $('document').ready(function() {
+      if ($('.text-medium').text() == 'Php 0.00') {
+        $('.text-lg').hide();
+        $('#btn-cart-empty').hide();
+        $('#btn-cart-coupon').attr('disabled', 'disabled');
+        $('.btn-success').attr('disabled', 'disabled');
+      }
+
       var quantity = $('.quantity');
 
       quantity.each(function() {
@@ -167,16 +177,16 @@
           data = { 
             _token: CSRF,
             quantity: quantity,
-            id: id,
+            id: id
           };
 
           $.ajax({
             url: '/cart/'+ id,
             type: 'PUT',
-            dataType: "json",
+            // dataType: "json",
             data: data,
             success: function(data){
-              if (data.status == 'OK') {
+              if (data.status ==  'OK') {
                 toastr.success('Item quantity was successfully updated.', 'Success!');
                 toastr.options = {
                   "progressBar": true,

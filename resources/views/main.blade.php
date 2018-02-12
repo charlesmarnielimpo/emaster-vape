@@ -16,7 +16,7 @@
               <div class="d-flex justify-content-center">
                 <div class="px-3 text-center">
                   <h2 class="display-4 text-white text-shadow">{{ $category->name }}</h2>
-                  <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from $56.00</h5>
+                  <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from Php {{ $category->products->min('price') }}</h5>
                   <div class="view-button">
                     <a class="btn btn-primary" href="{{ route('shop.index', ['category' => $category->slug]) }}">View Collection</a>
                   </div>
