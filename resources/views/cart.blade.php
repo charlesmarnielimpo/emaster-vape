@@ -3,7 +3,7 @@
 @section('title', 'Cart')
 
 @section('stylesheets')
-  <link rel="stylesheet" href="{{ url('/plugins/toastr/toastr.min.css') }}">
+  <link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.css' : 'plugins/toastr/toastr.min.css') }}">
 @endsection
 
 @section('content')
@@ -153,7 +153,7 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
+  <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js') : 'plugins/toastr/toastr.min.js' }}"></script>
   <script>
     $('document').ready(function() {
       var quantity = $('.quantity');
