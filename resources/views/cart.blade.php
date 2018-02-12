@@ -153,7 +153,7 @@
 @endsection
 
 @section('scripts')
-  <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js') : 'plugins/toastr/toastr.min.js' }}"></script>
+  <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js' : 'plugins/toastr/toastr.min.js' )}}"></script>
   <script>
     $('document').ready(function() {
       var quantity = $('.quantity');
