@@ -43,7 +43,7 @@
               <th width="40%">Product Name</th>
               <th class="text-center">Quantity</th>
               <th class="text-center">Price</th>
-              <th class="text-center">Subtotal</th>
+              {{-- <th class="text-center">Subtotal</th> --}}
               <th class="text-center">Discount</th>
               <th class="text-center">
                 <a class="btn btn-sm btn-outline-danger" href="{{ route('cart.empty') }}" id="btn-cart-empty">Clear Cart</a>
@@ -76,8 +76,8 @@
                       </select>
                     </div>
                   </td>
-                  <td class="text-center text-lg text-medium">Php {{ $item->model->priceFormat() }}</td>
-                  <td class="text-center text-lg text-medium">Php {{ Cart::subtotal() }}</td>
+                  <td class="text-center text-lg text-medium">${{ $item->model->priceFormat() }}</td>
+                  {{-- <td class="text-center text-lg text-medium">${{ Cart::subtotal() }}</td> --}}
                   <td class="text-center text-lg text-medium">--</td>
                   <td class="text-center">
                     <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
@@ -105,7 +105,7 @@
             <button class="btn btn-outline-primary btn-sm" type="submit" id="btn-cart-coupon">Apply Coupon</button>
           </form>
         </div>
-        <div class="column text-lg">Total: <span class="text-medium">Php {{ Cart::subtotal() }}</span></div>
+        <div class="column text-lg">Total: <span class="text-medium">${{ Cart::subtotal() }}</span></div>
       </div>
       <div class="shopping-cart-footer">
         <div class="column">
@@ -133,7 +133,7 @@
                 <a href="{{ route('shop.show', $item->slug) }}">{{ $item->name }}</a>
               </h3>
               <h4 class="product-price">
-                <del>Php 44.95</del>Php {{ $item->priceFormat() }}
+                <del>$44.95</del>${{ $item->priceFormat() }}
               </h4>
               <div class="product-buttons">
                 <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
@@ -160,7 +160,7 @@
   <script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js' : 'plugins/toastr/toastr.min.js' )}}"></script>
   <script>
     $('document').ready(function() {
-      if ($('.text-medium').text() == 'Php 0.00') {
+      if ($('.text-medium').text() == '$0.00') {
         $('.text-lg').hide();
         $('#btn-cart-empty').hide();
         $('#btn-cart-coupon').attr('disabled', 'disabled');
@@ -183,8 +183,8 @@
 
           $.ajax({
             url: '/cart/'+ id,
-            type: 'PUT',
-            // dataType: "json",
+            type: 'POST',
+            dataType: "json",
             data: data,
             success: function(data){
               if (data.success ==  true) {

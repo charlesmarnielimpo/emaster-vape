@@ -97,7 +97,7 @@
           @if(Cart::count() < 1)
 
           @else
-            <span class="subtotal">Php {{ Cart::subtotal() }}</span>
+            <span class="subtotal">${{ Cart::subtotal() }}</span>
           @endif
           <div class="toolbar-dropdown">
             @forelse(Cart::content() as $item)
@@ -114,7 +114,7 @@
                 </a>
                 <div class="dropdown-product-info">
                   <a class="dropdown-product-title" href="{{ route('shop.show', $item->model->slug) }}">{{ $item->name }}</a>
-                  <span class="dropdown-product-details">{{ $item->qty }} x Php {{ $item->model->priceFormat() }}</span>
+                  <span class="dropdown-product-details">{{ $item->qty }} x ${{ $item->model->priceFormat() }}</span>
                 </div>
               </div>
             @empty
@@ -126,7 +126,7 @@
                   <span class="text-lg">Total:</span>
                 </div>
                 <div class="column text-right">
-                  <span class="text-lg text-medium">Php {{ Cart::subtotal() }} &nbsp;</span>
+                  <span class="text-lg text-medium">${{ Cart::subtotal() }} &nbsp;</span>
                 </div>
               </div>
             @endif

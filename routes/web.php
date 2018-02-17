@@ -14,6 +14,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 Route::get('/', 'MainController@index')->name('main.index');
 
+
 /**********************
  ******** SHOP ********
  **********************/
@@ -25,7 +26,7 @@ Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
  **********************/
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
-Route::put('/cart/{product}', 'CartController@update')->name('cart.update');
+Route::post('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 Route::get('/empty', 'CartController@empty')->name('cart.empty');
 

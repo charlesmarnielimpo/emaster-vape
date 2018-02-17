@@ -84,7 +84,7 @@
                   <h3 class="product-title">
                     <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
                   </h3>
-                  <h4 class="product-price">Php {{ $product->priceFormat() }}</h4>
+                  <h4 class="product-price">${{ $product->priceFormat() }}</h4>
                   <div class="product-buttons">
                     <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
                       <i class="icon-heart"></i>

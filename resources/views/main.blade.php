@@ -16,7 +16,7 @@
               <div class="d-flex justify-content-center">
                 <div class="px-3 text-center">
                   <h2 class="display-4 text-white text-shadow">{{ $category->name }}</h2>
-                  <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from Php {{ $category->products->min('price') }}</h5>
+                  <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from ${{ $category->products->min('price') }}</h5>
                   <div class="view-button">
                     <a class="btn btn-primary" href="{{ route('shop.index', ['category' => $category->slug]) }}">View Collection</a>
                   </div>
@@ -44,8 +44,8 @@
                   <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
                 </h3>
                 <h4 class="product-price">
-                  {{-- <del>Php 99.99</del> --}}
-                  Php {{ $product->priceFormat() }}
+                  {{-- <del>$99.99</del> --}}
+                  ${{ $product->priceFormat() }}
                 </h4>
                 <div class="product-buttons">
                   <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
@@ -86,7 +86,7 @@
                     <h4 class="entry-title">
                       <a href="{{ route('shop.show', $topseller->slug) }}">{{ $topseller->name }}</a>
                     </h4>
-                    <span class="entry-meta">Php {{ $topseller->priceFormat() }}</span>
+                    <span class="entry-meta">${{ $topseller->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
@@ -108,7 +108,7 @@
                     <h4 class="entry-title">
                       <a href="{{ route('shop.show', $newarrival->slug) }}">{{ $newarrival->name }}</a>
                     </h4>
-                    <span class="entry-meta">Php {{ $newarrival->priceFormat() }}</span>
+                    <span class="entry-meta">${{ $newarrival->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
@@ -130,7 +130,7 @@
                     <h4 class="entry-title">
                       <a href="{{ route('shop.show', $bestrated->slug) }}">{{ $bestrated->name }}</a>
                     </h4>
-                    <span class="entry-meta">Php {{ $bestrated->priceFormat() }}</span>
+                    <span class="entry-meta">${{ $bestrated->priceFormat() }}</span>
                   </div>
                 </div>
               @endforeach
@@ -158,7 +158,7 @@
         <div class="row">
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="@if(App::environment('production')) public/img/services/01.png @else img/services/01.png @endif" alt="Shipping">
             <h6>Free Worldwide Shipping</h6>
-            <p class="text-muted margin-bottom-none">Free shipping for all orders over Php 5000.00</p>
+            <p class="text-muted margin-bottom-none">Free shipping for all orders over $5000.00</p>
           </div>
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="@if(App::environment('production')) public/img/services/02.png @else img/services/02.png @endif" alt="Money Back">
             <h6>Money Back Guarantee</h6>
