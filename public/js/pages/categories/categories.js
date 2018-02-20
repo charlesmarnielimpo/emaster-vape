@@ -86,7 +86,7 @@ $(document).ready(function() {
     $('.form-group').removeClass('has-success').removeClass('has-danger').find('.form-control-feedback').remove();
 
     category.show(id, function (data) {
-      $('#txt-edit-category-name').val(data.result.category_name);
+      $('#txt-edit-category-name').val(data.result.name);
     });
   });
 
@@ -167,7 +167,7 @@ $(document).ready(function() {
     $('#hdn-delete-category-id').val(id);
 
     category.show(id, function (data) {
-      $('#lbl-delete-category-confirmation').html('Are you sure you want to remove \'' + data.result.category_name + '\'?');
+      $('#lbl-delete-category-confirmation').html('Are you sure you want to remove \'' + data.result.name + '\'?');
     });
   });
 

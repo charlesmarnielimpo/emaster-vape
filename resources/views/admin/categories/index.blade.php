@@ -48,7 +48,7 @@
             @forelse ($categories as $category)
               <tr>
                 <th class="text-center">{{ $category->id }}</th>
-                <td>{{ $category->category_name }}</td>
+                <td>{{ $category->name }}</td>
                 <td>{{ date('M j, Y h:i A', strtotime($category->created_at)) }}</td>
                 <td>{{ $category->updated_at->diffForHumans() }}</td>
                 <td>

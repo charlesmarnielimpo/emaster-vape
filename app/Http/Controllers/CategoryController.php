@@ -90,7 +90,7 @@ class CategoryController extends Controller
                 'category_name' => 'required|string|max:20'
             ));
 
-        $category = Category::where('category_name', $request->category_name)->first();
+        $category = Category::where('name', $request->category_name)->first();
 
         if ($category) {
             $notification = array(
@@ -102,7 +102,8 @@ class CategoryController extends Controller
         } else {
             $category = New Category;
             
-            $category->category_name = $request->category_name;
+            $category->name = $request->category_name;
+            $category->slug = str_slug($request->category_name);
             $category->save();
 
             $notification = array(
@@ -124,7 +125,9 @@ class CategoryController extends Controller
     public function ajaxUpdate(Request $request, $id)
     {
         $category = Category::findOrFail($id);
-        $category->update($request->all());
+        $category->name = $request->category_name;
+        $category->slug = str_slug($request->category_name);
+        $category->update();
 
         $notification = array(
             'message' => 'Category was successfully updated!', 
@@ -142,7 +145,7 @@ class CategoryController extends Controller
             $category->delete();
         
             $notification = array(
-                'message' => $category->category_name. ' category successfully deleted!', 
+                'message' => $category->name. ' category successfully deleted!', 
                 'alert-type' => 'success'
             );
 
