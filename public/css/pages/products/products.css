@@ -6,3 +6,33 @@
 .dz-default.dz-message {
 	font-size: 1.5em;
 }
+
+body {
+	margin: 0 !important;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+  vertical-align: middle !important;
+}
+
+.bootstrap-tagsinput {
+	width: 100%;
+}
+
+.tag.label.label-info {
+	background-color: #0da9ef;
+}
+
+.tag {
+	color: #fff !important;
+	border: 1px solid #0da9ef !important;
+}
+
+table.dataTable.no-footer {
+	border-bottom: 1px solid #e9ecef;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+	border-bottom:1px solid #e9ecef;
+}

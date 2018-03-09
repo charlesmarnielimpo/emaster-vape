@@ -20,12 +20,18 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')
                   ->references('id')->on('categories')
                   ->onDelete('cascade');
-            $table->boolean('featured')->default(false);
+            $table->string('sku', 10);
             $table->string('name')->unique();
             $table->string('slug')->unique();
+            $table->float('price', 8, 2)->default(0.00);
+            $table->integer('quantity')->default(0);
+            $table->boolean('featured')->default(false);
             $table->text('details')->nullable();
-            $table->float('price', 8, 2);
             $table->text('description');
+            $table->string('color')->nullable();
+            $table->integer('bottle_size')->nullable()->unsigned();
+            $table->integer('strength')->nullable()->unsigned();
+            $table->float('ohm', 8, 3)->nullable();
             $table->timestamps();
         });
     }

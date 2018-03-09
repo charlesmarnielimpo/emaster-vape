@@ -2,6 +2,7 @@ var frm_add_category_validator, frm_edit_category_validator;
 
 $(document).ready(function() {
 	$(".fa-list").parent().addClass("active").parent().addClass("active");
+  $('#tbl-categories').DataTable();
 
 	frm_add_category_validator = $('#frm-add-category').validate({
     rules: {

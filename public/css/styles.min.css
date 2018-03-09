@@ -6567,7 +6567,7 @@ video {
 .checkout-steps>a {
     display: block;
     position: relative;
-    width: 25%;
+    width: 50%;
     height: 55px;
     float: right;
     transition: color .3s;
