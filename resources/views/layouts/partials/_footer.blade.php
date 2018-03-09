@@ -23,7 +23,7 @@
           <li><a href="#">Vaporizers</a></li>
           <li><a href="#">Liquids</a></li>
           <li><a href="#">Tanks</a></li>
-          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Coils</a></li>
         </ul>
       </section>
     </div>
@@ -59,7 +59,8 @@
   <div class="row">
     <div class="col-md-7 padding-bottom-1x">
       <!-- Payment Methods-->
-      <div class="margin-bottom-1x" style="max-width: 615px;"><img src="{{ url(App::environment('production') ? '/public/img/payment_methods.png' : '/img/payment_methods.png') }}" alt="Payment Methods">
+      <div class="margin-bottom-1x" style="max-width: 615px;">
+        <img src="{{ url(App::environment('production') ? '/public/img/payment_methods.png' : '/img/payment_methods.png') }}" alt="Payment Methods">
       </div>
     </div>
     <div class="col-md-5 padding-bottom-1x">

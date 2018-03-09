@@ -61,8 +61,16 @@
                 <input class="custom-control-input" type="checkbox" {{ old('remember') ? 'checked' : ''}}><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
               </label><a class="navi-link" href="{{ url('/password/reset') }}">Forgot password?</a>
             </div>
-            <div class="text-center text-sm-right">
-              <button class="btn btn-primary margin-bottom-none" type="submit"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+            <div class="row">
+              <div class="col-xl-6 col-md-6 col-sm-6">
+                <a href="{{ route('guestCheckout') }}" class="btn btn-success btn-block"><i class="fa fa-cart-plus"></i> Checkout as Guest</a>
+              </div>
+              <div class="col-xl-6 col-md-6 col-sm-6">
+                <button class="btn btn-primary btn-block margin-bottom-none" type="submit"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+              </div>
+              {{-- <div class="text-center text-sm-right">
+                <button class="btn btn-primary btn-block margin-bottom-none" type="submit"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+              </div> --}}
             </div>
           </form>
         </div>

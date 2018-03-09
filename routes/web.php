@@ -13,17 +13,25 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 */
 
 Route::get('/', 'MainController@index')->name('main.index');
+Route::get('/home', 'HomeController@index');
 
+// route for check status responce
+Route::get('payments/with-paypal', 'PaypalPaymentController@payWithPaypal')->name('payments.paypal');
+Route::get('payments/status', 'PaypalPaymentController@status')->name('payments.status');
 
-/**********************
- ******** SHOP ********
- **********************/
+/************************
+ ******** CLIENT ********
+ ************************/
+// Checkout
+Route::get('/checkout', 'CheckoutController@index')->name('checkout')->middleware('auth');
+Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout');
+Route::post('/changeProvince/{province}', 'CheckoutController@update')->name('province.update');
+
+// Shop
 Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 
-/**********************
- ******** CART ********
- **********************/
+// Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::post('/cart/{product}', 'CartController@update')->name('cart.update');
@@ -36,8 +44,6 @@ Route::get('/empty', 'CartController@empty')->name('cart.empty');
 Auth::routes();
 // to logout user by entering /logout uri
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
-Route::get('/home', 'HomeController@index');
 
 /******************
  * ADMINISTRATOR  *

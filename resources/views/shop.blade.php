@@ -79,7 +79,7 @@
                     <i class="icon-star filled"></i>
                   </div>
                   <a class="product-thumb" href="{{ route('shop.show', $product->slug) }}">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' : 'img/products/'.$product->slug.'.png') }}" alt="{{ $product->name }}">
+                    <img src="{{ asset(App::environment('production') ? $product->product_image->first()->url : substr($product->product_image->first()->url, 6, 60)) }}" alt="{{ $product->name }}" style="height:200px; width:100%;">
                   </a>
                   <h3 class="product-title">
                     <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>

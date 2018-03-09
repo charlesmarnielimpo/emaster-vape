@@ -4,7 +4,6 @@
 
   @section('content')
     <!-- Off-Canvas Wrapper-->
-    <div class="offcanvas-wrapper">
       <!-- Page Content-->
       <!-- Category-->
       <div class="container-fluid px-0">
@@ -16,7 +15,7 @@
               <div class="d-flex justify-content-center">
                 <div class="px-3 text-center">
                   <h2 class="display-4 text-white text-shadow">{{ $category->name }}</h2>
-                  <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from ${{ $category->products->min('price') }}</h5>
+                  {{-- <h5 class="text-white text-normal mb-3 opacity-60 text-shadow">Starting from ${{ $category->products->min('price') }}</h5> --}}
                   <div class="view-button">
                     <a class="btn btn-primary" href="{{ route('shop.index', ['category' => $category->slug]) }}">View Collection</a>
                   </div>
@@ -33,35 +32,37 @@
           <div class="gutter-sizer"></div>
           <div class="grid-sizer"></div>
           <!-- Product-->
-          @foreach($products as $product)
-            <div class="grid-item">
-              <div class="product-card">
-                {{-- <div class="product-badge text-danger">50% Off</div> --}}
-                  <a class="product-thumb" href="{{ route('shop.show', $product->slug) }}">
-                    <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$product->slug.'.png' : '/img/products/'.$product->slug.'.png') }}" alt="{{ $product->name }}">
-                  </a>
-                <h3 class="product-title">
-                  <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
-                </h3>
-                <h4 class="product-price">
-                  {{-- <del>$99.99</del> --}}
-                  ${{ $product->priceFormat() }}
-                </h4>
-                <div class="product-buttons">
-                  <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
-                    <i class="icon-heart"></i>
-                  </button>
-                  <form action="{{ route('cart.store') }}" method="POST" style="display: inline-block;">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $product->id}}">
-                    <input type="hidden" name="name" value="{{ $product->name}}">
-                    <input type="hidden" name="price" value="{{ $product->price}}">
-                    <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          @endforeach
+          <div class="row">
+          	@foreach($products as $product)
+	            <div class="grid-item">
+	              <div class="product-card">
+	                {{-- <div class="product-badge text-danger">50% Off</div> --}}
+	                  <a class="product-thumb" href="{{ route('shop.show', $product->slug) }}">
+	                    <img src="{{ asset(App::environment('production') ? $product->product_image->first()->url : substr($product->product_image->first()->url, 6, 60)) }}" alt="{{ $product->name }}" style="height:200px; width:100%;">
+	                  </a>
+	                <h3 class="product-title">
+	                  <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
+	                </h3>
+	                <h4 class="product-price">
+	                  {{-- <del>$99.99</del> --}}
+	                  ${{ $product->priceFormat() }}
+	                </h4>
+	                <div class="product-buttons">
+	                  <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">
+	                    <i class="icon-heart"></i>
+	                  </button>
+	                  <form action="{{ route('cart.store') }}" method="POST" style="display: inline-block;">
+	                    {{ csrf_field() }}
+	                    <input type="hidden" name="id" value="{{ $product->id}}">
+	                    <input type="hidden" name="name" value="{{ $product->name}}">
+	                    <input type="hidden" name="price" value="{{ $product->price}}">
+	                    <button type="submit" class="btn btn-outline-primary btn-sm">Add to Cart</button>
+	                  </form>
+	                </div>
+	              </div>
+	            </div>
+	          @endforeach
+          </div>
         </div>
         <div class="text-center">
           <a class="btn btn-outline-secondary margin-top-none" href="{{ route('shop.index') }}">View All Products</a>
@@ -79,7 +80,7 @@
                 <div class="entry">
                   <div class="entry-thumb">
                     <a href="{{ route('shop.show', $topseller->slug) }}">
-                      <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$topseller->slug.'.png' : '/img/products/'.$topseller->slug.'.png') }}" alt="Product">
+                      <img src="{{ asset(App::environment('production') ? $topseller->product_image->first()->url : substr($topseller->product_image->first()->url, 6, 60)) }}" alt="{{ $topseller->name }}" style="height:40px; width:100%;">
                     </a>
                   </div>
                   <div class="entry-content">
@@ -101,7 +102,7 @@
                 <div class="entry">
                   <div class="entry-thumb">
                     <a href="{{ route('shop.show', $newarrival->slug) }}">
-                      <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$newarrival->slug.'.png' : '/img/products/'.$newarrival->slug.'.png') }}" alt="Product">
+                      <img src="{{ asset(App::environment('production') ? $newarrival->product_image->first()->url : substr($newarrival->product_image->first()->url, 6, 60)) }}" alt="{{ $newarrival->name }}" style="height:40px; width:100%;">
                     </a>
                   </div>
                   <div class="entry-content">
@@ -123,7 +124,7 @@
                 <div class="entry">
                   <div class="entry-thumb">
                     <a href="{{ route('shop.show', $bestrated->slug) }}">
-                      <img src="{{ asset(App::environment('production') ? '/public/img/products/'.$bestrated->slug.'.png' : '/img/products/'.$bestrated->slug.'.png') }}" alt="Product">
+                      <img src="{{ asset(App::environment('production') ? $bestrated->product_image->first()->url : substr($bestrated->product_image->first()->url, 6, 60)) }}" alt="{{ $bestrated->name }}" style="height:40px; width:100%;">
                     </a>
                   </div>
                   <div class="entry-content">
@@ -157,8 +158,8 @@
       <section class="container padding-top-3x padding-bottom-2x">
         <div class="row">
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="@if(App::environment('production')) public/img/services/01.png @else img/services/01.png @endif" alt="Shipping">
-            <h6>Free Worldwide Shipping</h6>
-            <p class="text-muted margin-bottom-none">Free shipping for all orders over $5000.00</p>
+            <h6>Free Shipping</h6>
+            <p class="text-muted margin-bottom-none">Free shipping for all orders over <br>₱ 5,000.00</p>
           </div>
           <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="@if(App::environment('production')) public/img/services/02.png @else img/services/02.png @endif" alt="Money Back">
             <h6>Money Back Guarantee</h6>

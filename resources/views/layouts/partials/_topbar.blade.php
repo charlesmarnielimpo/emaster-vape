@@ -47,8 +47,10 @@
   </form>
   <div class="site-branding">
     <div class="inner">
-      <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
-      <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+      <!-- Off-Canvas Toggle (#shop-categories)-->
+      {{-- <a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
+      <!-- Off-Canvas Toggle (#mobile-menu)-->
+      {{-- <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a> --}}
       <!-- Site Logo-->
       <a class="site-logo" href="{{ url('/') }}"><img src="{{ asset(App::environment('production') ? '/public/img/logo/logo.png' : '/img/logo/logo.png') }}" alt="E-Master Vape" style="width: 50px;"></a>
     </div>
@@ -65,7 +67,9 @@
     <div class="inner">
       <div class="tools">
         <div class="search"><i class="icon-search"></i></div>
-        <div class="account"><a href="#"></a><i class="icon-head"></i>
+        <div class="account">
+          <a href="#"></a>
+          <i class="icon-head"></i>
           <ul class="toolbar-dropdown">
             @if(Auth::check()) 
               <li class="sub-menu-user">
@@ -110,7 +114,8 @@
                   </button>
                 </form>
                 <a class="dropdown-product-thumb" href="{{ route('shop.show', $item->model->slug) }}">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->model->slug.'.png' : 'img/products/'.$item->model->slug.'.png') }}" alt="{{ $item->name }}">
+                  {{-- <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->model->slug.'.png' : 'img/products/'.$item->model->slug.'.png') }}" alt="{{ $item->name }}"> --}}
+                  <img src="{{ asset(App::environment('production') ? $item->model->product_image->first()->url : substr($item->model->product_image->first()->url, 6, 60)) }}" alt="{{ $item->name }}">
                 </a>
                 <div class="dropdown-product-info">
                   <a class="dropdown-product-title" href="{{ route('shop.show', $item->model->slug) }}">{{ $item->name }}</a>

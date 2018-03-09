@@ -31,65 +31,33 @@
           <div class="col-md-6">
             <div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
               <div class="gallery-wrapper">
-                <div class="gallery-item active">
-                  <a href="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" data-hash="one" data-size="1000x667"></a>
-                </div>
-                <div class="gallery-item">
-                  <a href="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" data-hash="two" data-size="1000x667"></a>
-                </div>
-                <div class="gallery-item">
-                  <a href="{{ asset(App::environment('production') ? 'public/img/products/g-priv2.png' : 'img/products/g-priv2.png') }}" data-hash="three" data-size="1000x667"></a>
-                </div>
-                <div class="gallery-item">
-                  <a href="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" data-hash="four" data-size="1000x667"></a>
-                </div>
-                <div class="gallery-item">
-                  <a href="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" data-hash="five" data-size="1000x667"></a>
-                </div>
+                <?php $count = 1; ?>
+                @foreach($product->product_image as $image)
+                  <div class="gallery-item {{ $count === 1 ? 'active' : '' }}">
+                    <a href="{{ asset(App::environment('production') ? $image->url : substr($image->url, 6, 60)) }}" data-hash="{{ $count }}" data-size="1000x667"></a>
+                  </div>
+                  <?php $count++; ?>
+                @endforeach
               </div>
               <div class="product-carousel owl-carousel">
-                <div data-hash="one">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" alt="Product">
-                </div>
-                <div data-hash="two">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product">
-                </div>
-                <div data-hash="three">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv2.png' : 'img/products/g-priv2.png') }}" alt="Product">
-                </div>
-                <div data-hash="four">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product">
-                </div>
-                <div data-hash="five">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product">
-                </div>
+                <?php $count = 1; ?>
+                @foreach($product->product_image as $image)
+                  <div data-hash="{{ $count }}">
+                    <img src="{{ asset(App::environment('production') ? $image->url : substr($image->url, 6, 60)) }}" alt="{{ $product->name }}">
+                  </div>
+                  <?php $count++; ?>
+                @endforeach
               </div>
               <ul class="product-thumbnails">
-                <li class="active">
-                  <a href="#one">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$product->slug.'.png' :'img/products/'.$product->slug.'.png') }}" alt="Product">
-                  </a>
-                </li>
-                <li>
-                  <a href="#two">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/cloud-beast-prince.png' : 'img/products/cloud-beast-prince.png') }}" alt="Product">
-                  </a>
-                </li>
-                <li>
-                  <a href="#three">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/g-priv2.png' : 'img/products/g-priv2.png') }}" alt="Product">
-                  </a>
-                </li>
-                <li>
-                  <a href="#four">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-baby-light-edition.png' : 'img/products/tfv8-big-baby-light-edition.png') }}" alt="Product">
-                  </a>
-                </li>
-                <li>
-                  <a href="#five">
-                    <img src="{{ asset(App::environment('production') ? 'public/img/products/tfv8-big-family.png' : 'img/products/tfv8-big-family.png') }}" alt="Product">
-                  </a>
-                </li>
+                <?php $count = 1; ?>
+                @foreach($product->product_image as $image)
+                  <li class="{{ $count === 1 ? 'active' : '' }}">
+                    <a href="#{{ $count }}">
+                      <img src="{{ asset(App::environment('production') ? $image->url : substr($image->url, 6, 60)) }}" alt="{{ $product->name }}">
+                    </a>
+                  </li>
+                  <?php $count++; ?>
+                @endforeach
               </ul>
             </div>
           </div>
@@ -106,52 +74,39 @@
             <span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
             <h2 class="padding-top-1x text-normal">{{ $product->name }}</h2>
             <span class="h2 d-block">
-              <del class="text-muted text-normal">Php 68.00</del>&nbsp; Php {{ $product->priceFormat() }}
+              {{-- <del class="text-muted text-normal">Php 68.00</del>&nbsp;  --}}
+              ${{ $product->priceFormat() }}
             </span>
             <p>{{ $product->details }}</p>
             <div class="row margin-top-1x">
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="size">Size</label>
-                  <select class="form-control" id="size">
-                    <option>Chooze size</option>
-                    <option>11.5</option>
-                    <option>11</option>
-                    <option>10.5</option>
-                    <option>10</option>
-                    <option>9.5</option>
-                    <option>9</option>
-                    <option>8.5</option>
-                  </select>
+              @if($product->categories->name === "Tanks")
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="color">Color</label>
+                    <select class="form-control" id="color">
+                      <?php $colors = explode(',', $product->color);?>
+                      @foreach($colors as $key => $value) 
+                        <option value="{{ $value }}">{{ $value }}</option>
+                      @endforeach
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="form-group">
-                  <label for="color">Color</label>
-                  <select class="form-control" id="color">
-                    <option>White/Red/Blue</option>
-                    <option>Black/Orange/Green</option>
-                    <option>Gray/Purple/White</option>
-                  </select>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <select class="form-control" id="quantity">
+                      @for($i = 1; $i <= 10; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                      @endfor
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label for="quantity">Quantity</label>
-                  <select class="form-control" id="quantity">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-              </div>
+              @endif
             </div>
-            <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div>
+            <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> {{ $product->sku }} </div>
             <div class="padding-bottom-1x mb-2">
               <span class="text-medium">Category:&nbsp;</span>
-              <a class="navi-link" href="#">{{ $product->categories->name }}</a>
+              <a class="navi-link" href="{{ route('shop.index', ['category' => $product->categories->slug]) }}"><span class="badge badge-primary">{{ $product->categories->name }}</span></a>
             </div>
             <hr class="mb-3">
             <div class="d-flex flex-wrap justify-content-between">
@@ -182,7 +137,7 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane fade show active" id="description" role="tabpanel">
-                <p>{{ $product->description }}</p>
+                <p>{!! $product->description !!}</p>
               </div>
               <div class="tab-pane fade" id="reviews" role="tabpanel">
                 <!-- Review-->
@@ -287,11 +242,12 @@
               <div class="product-card">
                 <div class="product-badge text-danger">22% Off</div>
                 <a class="product-thumb" href="{{ route('shop.show', $item->slug) }}">
-                  <img src="{{ asset(App::environment('production') ? 'public/img/products/'.$item->slug.'.png' : '/img/products/'.$item->slug.'.png') }}" alt="Product">
+                  <img src="{{ asset(App::environment('production') ? $item->product_image->first()->url : substr($item->product_image->first()->url, 6, 60)) }}" alt="{{ $item->name }}" style="height:200px; width:100%;">
                 </a>
                 <h3 class="product-title"><a href="{{ route('shop.show', $item->slug) }}">{{ $item->name }}</a></h3>
                 <h4 class="product-price">
-                  <del>Php 44.95</del>Php {{ $item->priceFormat() }}
+                  {{-- <del>Php 44.95</del> --}}
+                  ${{ $item->priceFormat() }}
                 </h4>
                 <div class="product-buttons">
                   <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Wishlist">

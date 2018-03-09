@@ -3,9 +3,10 @@
 @section('title', 'Categories')
 
 @section('stylesheets')
-	<link rel="stylesheet" href="{{ asset('/css/pages/admin/admin.css') }}">
-	<link rel="stylesheet" href="{{ asset('/css/pages/categories/categories.css') }}">
-  <link rel="stylesheet" href="{{ url('/plugins/toastr/toastr.min.css') }}">
+  <link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/plugins/datatables/jquery.dataTables.min.css' : 'plugins/datatables/jquery.dataTables.min.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/admin/admin.css' : 'css/pages/admin/admin.css') }}">
+	<link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/css/pages/categories/categories.css' : 'css/pages/categories/categories.css') }}">
+  <link rel="stylesheet" href="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.css' : 'plugins/toastr/toastr.min.css') }}">
 @endsection
 
 @section('content')
@@ -34,7 +35,7 @@
 		<!-- Content -->
 		<div id="content-wrapper">
 			<div class="table-responsive table-hover">
-        <table class="table">
+        <table class="table" id="tbl-categories">
           <thead>
             <tr>
               <th width="5%" class="text-center">#</th>
@@ -148,7 +149,8 @@
 @endsection
 
 @section('scripts')
-	<script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
-  <script src="{{ asset('/js/classes/category.js') }}"></script>
-	<script src="{{ asset('/js/pages/categories/categories.js') }}"></script>
+	<script src="{{ asset(App::environment('production') ? 'public/plugins/toastr/toastr.min.js' : 'plugins/toastr/toastr.min.js') }}"></script>
+  <script src="{{ asset(App::environment('production') ? 'public/plugins/datatables/jquery.dataTables.min.js' : 'plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset(App::environment('production') ? 'public/js/classes/category.js' : 'js/classes/category.js') }}"></script>
+	<script src="{{ asset(App::environment('production') ? 'public/js/pages/categories/categories.js' : 'js/pages/categories/categories.js') }}"></script>
 @endsection
