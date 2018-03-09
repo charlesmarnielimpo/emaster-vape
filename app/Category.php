@@ -21,7 +21,7 @@ class Category extends Model
         return $this->hasOne('App\Product', 'category_id', 'id');
     }
 
-    public function setCategoryNameAttribute($value)
+    public function setNameAttribute($value)
     {
         $this->attributes['name'] = ucwords($value);
     }

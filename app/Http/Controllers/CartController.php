@@ -43,20 +43,20 @@ class CartController extends Controller
         });
 
         if ($duplicate->isNotEmpty()) {
-            return redirect()->route('cart.index');
+            return redirect()->route('cart.index')->with('error_message', $request->name.' is already in your cart.');
         }
 
         Cart::add($request->id, $request->name, 1, $request->price)
                 ->associate('App\Product');
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with('success_message', ' Item was added to your cart.');
     }
 
     public function empty()
     {
         Cart::destroy();
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with('success_message', ' Your cart is empty.');
     }
 
     /**
@@ -91,7 +91,8 @@ class CartController extends Controller
     public function update(Request $request, $id)
     {
         Cart::update($id, $request->quantity);
-        
+
+        $request->session()->flash('success_message', ' Your cart was successfully updated.');
         return response()->json(['success' => true]);
     }
 
@@ -105,6 +106,6 @@ class CartController extends Controller
     {
         Cart::remove($id);
 
-        return back();
+        return back()->with('success_message', ' Item was removed from your cart.');
     }
 }
